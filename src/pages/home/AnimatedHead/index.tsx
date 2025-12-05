@@ -44,11 +44,13 @@ export const AnimatedHead = () => {
       >
         <Box
           sx={{
+            position: "relative",
             width: "50%",
             textAlign: "center",
             opacity: fade ? 0.7 : 1,
             transition: "0.5s",
             transform: values.toggle ? "translateX(100%)" : "translateX(0)",
+            zIndex: 2,
           }}
         >
           <Box
@@ -77,6 +79,7 @@ export const AnimatedHead = () => {
         </Box>
         <Typography
           sx={{
+            position: "relative",
             fontFamily: '"Inter", sans-serif',
             color: fade ? "#F7D0FF" : "#A808C8",
             fontWeight: 500,
@@ -84,8 +87,9 @@ export const AnimatedHead = () => {
             width: "50%",
             textAlign: "center",
             opacity: fade ? 0.25 : 1,
-            transition: "0.8s",
             transform: values.toggle ? "translateX(-100%)" : "translateX(0)",
+            transition: "0.8s",
+            zIndex: 1,
           }}
         >
           {values.comment}

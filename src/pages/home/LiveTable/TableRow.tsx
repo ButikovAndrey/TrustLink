@@ -33,7 +33,8 @@ export const TableRow = ({ row }: PropsType) => {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
-            width: 164,
+            width: 165,
+            minWidth: 165,
             gap: 1,
             textWrap: "nowrap",
             bgcolor: "#F2F8FF",
@@ -70,7 +71,8 @@ export const TableRow = ({ row }: PropsType) => {
           alignItems: "center",
           gap: 1,
           textWrap: "nowrap",
-          width: 154,
+          width: 155,
+          minWidth: 155,
         }}
       >
         <Typography
@@ -115,6 +117,7 @@ export const TableRow = ({ row }: PropsType) => {
           display: "flex",
           height: "100%",
           width: 155,
+          minWidth: 155,
           alignItems: "center",
           justifyContent: "flex-start",
         }}
@@ -150,6 +153,7 @@ export const TableRow = ({ row }: PropsType) => {
           display: "flex",
           height: "100%",
           width: 135,
+          minWidth: 135,
           alignItems: "center",
           justifyContent: "flex-start",
         }}
@@ -158,6 +162,7 @@ export const TableRow = ({ row }: PropsType) => {
           sx={{
             display: "flex",
             width: 100,
+            minWidth: 100,
             height: 27,
             justifyContent: "flex-start",
             alignItems: "center",
@@ -185,6 +190,7 @@ export const TableRow = ({ row }: PropsType) => {
           display: "flex",
           height: "100%",
           width: 145,
+          minWidth: 145,
           alignItems: "center",
           justifyContent: "flex-start",
         }}
@@ -193,6 +199,7 @@ export const TableRow = ({ row }: PropsType) => {
           sx={{
             display: "flex",
             width: 100,
+            minWidth: 100,
             height: 27,
             justifyContent: "flex-start",
             alignItems: "center",

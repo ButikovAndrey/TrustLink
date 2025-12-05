@@ -1,35 +1,32 @@
-import { Container, Typography, Box, Button } from "@mui/material";
-import {
-  Banner,
-  Burger,
-  Flag,
-  Live,
-  TrustLink,
-  TrustLinkSymbol,
-} from "@/icons";
+import { Container, Typography, Box } from "@mui/material";
+import { Banner, TrustLink, TrustLinkSymbol } from "@/icons";
 import { LiveTable } from "@/pages/home/LiveTable";
 import { AnimatedHead } from "@/pages/home/AnimatedHead";
+import { JoinBlock } from "@/pages/home/JoinBlock";
+import { NavigationHeader } from "@/pages/home/NavigationHeader";
+import { RefObject, useRef } from "react";
+import { TradersCalculator } from "@/pages/home/TradersCalculator";
 
 export const Home = () => {
+  const liveSection = useRef(null);
+  const calculatorSection = useRef(null);
+  const joinSection = useRef(null);
+  const contactsSection = useRef(null);
+
+  const scrollToSection = (
+    ref: RefObject<HTMLDivElement>,
+    block: ScrollLogicalPosition | undefined = "start"
+  ) => {
+    ref.current.scrollIntoView({ block, behavior: "smooth" });
+  };
   return (
     <>
-      <Container sx={{ my: 3 }} component="header">
-        <Box
-          component="nav"
-          sx={{
-            display: "flex",
-            width: "100%",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Burger />
-          <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-            <TrustLinkSymbol />
-            <TrustLink />
-          </Box>
-          <Flag />
-        </Box>
+      <Container sx={{ py: 3, px: 0 }} component="header">
+        <NavigationHeader
+          liveSection={liveSection}
+          calculatorSection={calculatorSection}
+          contactsSection={contactsSection}
+        />
         <Box
           sx={{
             width: "100%",
@@ -56,16 +53,15 @@ export const Home = () => {
             <Typography
               sx={{
                 display: "inline-block",
-                width: "100%",
+                width: "97%",
                 maxWidth: 790,
                 textAlign: "center",
                 fontSize: {
-                  xs: 32,
+                  xs: 30,
                   sm: 40,
                   md: 50,
                 },
                 lineHeight: "60px",
-                fontWeight: 400,
                 fontFamily: '"Manrope", sans-serif',
                 letterSpacing: "-2%",
               }}
@@ -85,71 +81,231 @@ export const Home = () => {
         </Box>
       </Container>
       <Container
-        component="main"
+        component="datalist"
         sx={{
           width: "100%",
           display: "flex",
           justifyContent: "center",
+          mb: "130px",
         }}
       >
-        <Box sx={{ width: "100%", maxWidth: 790 }}>
+        <Box ref={liveSection} sx={{ width: "100%", maxWidth: 790 }}>
+          <LiveTable />
+          <JoinBlock />
+          <Box ref={joinSection} />
+        </Box>
+      </Container>
+      <TradersCalculator calculatorSection={calculatorSection} />
+      <Container
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          mt: "100px",
+          p: {
+            xs: 0.5,
+            sm: 1,
+            md: 2,
+          },
+        }}
+        component="footer"
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flex: 1,
+            width: "50%",
+            alignItems: "center",
+            justifyContent: {
+              xs: "center",
+              sm: "flex-start",
+            },
+            flexDirection: {
+              xs: "column",
+              sm: "row",
+            },
+          }}
+        >
+          <TrustLinkSymbol />
+          <TrustLink />
+        </Box>
+        <Box
+          ref={contactsSection}
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignContent: "flex-start",
+            width: "50%",
+          }}
+        >
           <Box
             sx={{
               display: "flex",
-              gap: 1,
-              width: "100%",
-              justifyContent: "center",
-              alignItems: "center",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              width: 215,
             }}
           >
-            <Live />
             <Typography
               sx={{
-                fontWeight: 400,
-                fontFamily: '"Manrope", sans-serif',
-                fontSize: {
-                  xs: 28,
-                  sm: 32,
-                  md: 40,
+                color: "#440A8F",
+                fontFamily: '"Montserat", sans-serif',
+                mb: "20px",
+                fontWeight: 700,
+              }}
+            >
+              Sitemap
+            </Typography>
+            <Typography
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+              sx={{
+                color: "#737373",
+                mb: "10px",
+                cursor: "pointer",
+                fontFamily: '"Montserat", sans-serif',
+                fontWeight: 500,
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "black",
                 },
               }}
-              component="h3"
             >
-              Live Activity
+              Home
+            </Typography>
+            <Typography
+              onClick={() =>
+                scrollToSection(
+                  liveSection as unknown as RefObject<HTMLDivElement>,
+                  "center"
+                )
+              }
+              sx={{
+                color: "#737373",
+                mb: "10px",
+                cursor: "pointer",
+                fontFamily: '"Montserat", sans-serif',
+                fontWeight: 500,
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "black",
+                },
+              }}
+            >
+              Live Activities
+            </Typography>
+            <Typography
+              onClick={() =>
+                scrollToSection(
+                  joinSection as unknown as RefObject<HTMLDivElement>,
+                  "center"
+                )
+              }
+              sx={{
+                color: "#737373",
+                mb: "10px",
+                cursor: "pointer",
+                fontFamily: '"Montserat", sans-serif',
+                fontWeight: 500,
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "black",
+                },
+              }}
+            >
+              Join now
             </Typography>
           </Box>
-          <LiveTable />
-          <Button
-            fullWidth
-            color="secondary"
-            variant="outlined"
+          <Box
             sx={{
-              textTransform: "none",
-              mb: "20px",
-              fontFamily: '"Manrope", sans-serif',
-              fontSize: 25,
-              fontWeight: 500,
-              borderRadius: "99px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
             }}
           >
-            Login
-          </Button>
-
-          <Button
-            fullWidth
-            color="secondary"
-            variant="contained"
-            sx={{
-              textTransform: "none",
-              boxShadow: "none",
-              fontFamily: '"Manrope", sans-serif',
-              fontSize: 25,
-              fontWeight: 500,
-              borderRadius: "99px",
-            }}
-          >
-            Join now!
-          </Button>
+            <Typography
+              sx={{
+                color: "#440A8F",
+                fontFamily: '"Montserat", sans-serif',
+                mb: "20px",
+                fontWeight: 700,
+              }}
+            >
+              Resources
+            </Typography>
+            <Typography
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+              sx={{
+                color: "#737373",
+                mb: "10px",
+                cursor: "pointer",
+                fontFamily: '"Montserat", sans-serif',
+                fontWeight: 500,
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "black",
+                },
+              }}
+            >
+              Terms & Conditions
+            </Typography>
+            <Typography
+              sx={{
+                color: "#737373",
+                mb: "10px",
+                cursor: "pointer",
+                fontFamily: '"Montserat", sans-serif',
+                fontWeight: 500,
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "black",
+                },
+              }}
+            >
+              Privacy Policy
+            </Typography>
+            <Typography
+              sx={{
+                color: "#737373",
+                mb: "10px",
+                cursor: "pointer",
+                fontFamily: '"Montserat", sans-serif',
+                fontWeight: 500,
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "black",
+                },
+              }}
+            >
+              {"Support (Telegram)"}
+            </Typography>
+            <Typography
+              sx={{
+                color: "#737373",
+                mb: "10px",
+                cursor: "pointer",
+                fontFamily: '"Montserat", sans-serif',
+                fontWeight: 500,
+                transition: "color 0.5s",
+                "&:hover": {
+                  color: "black",
+                },
+              }}
+            >
+              Contact Us
+            </Typography>
+          </Box>
         </Box>
       </Container>
     </>
