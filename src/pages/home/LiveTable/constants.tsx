@@ -213,3 +213,9 @@ export const tableContent: ITableCotent[] = [
     paymentMethodIcon: Card,
   },
 ];
+
+export const MAX_VISIBLE = 7;
+export const ROW_HEIGHT = 50;
+export const INTERVAL = 7000;
+export const ANIM_DURATION = 500;
+export const HIGHLIGHT_DURATION = 750;

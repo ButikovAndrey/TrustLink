@@ -1,14 +1,15 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { tableContent } from "./constants";
+import {
+  ANIM_DURATION,
+  HIGHLIGHT_DURATION,
+  INTERVAL,
+  MAX_VISIBLE,
+  ROW_HEIGHT,
+  tableContent,
+} from "./constants";
 import { TableRow } from "./TableRow";
 import { Live } from "@/icons";
-
-const MAX_VISIBLE = 7;
-const ROW_HEIGHT = 50;
-const INTERVAL = 7000;
-const ANIM_DURATION = 500;
-const HIGHLIGHT_DURATION = 750;
 
 export const LiveTable = () => {
   const [index, setIndex] = useState(0);
@@ -73,6 +74,7 @@ export const LiveTable = () => {
               sm: 32,
               md: 40,
             },
+            color: "#1B2128",
           }}
           component="h3"
         >

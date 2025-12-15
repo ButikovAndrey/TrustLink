@@ -1,5 +1,7 @@
 import { Calculator } from "@/icons";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { ButtonsContainer } from "./Buttons";
+import { Steps } from "./Steps";
+import { Box, Container, Typography } from "@mui/material";
 import { RefObject } from "react";
 
 type PropsType = {
@@ -50,6 +52,7 @@ export const TradersCalculator = ({ calculatorSection }: PropsType) => {
                 md: 40,
               },
               textAlign: "center",
+              color: "#1B2128",
             }}
             component="h2"
           >
@@ -65,6 +68,7 @@ export const TradersCalculator = ({ calculatorSection }: PropsType) => {
               md: 25,
             },
             textAlign: "center",
+            color: "#1B2128",
           }}
           component="h4"
         >
@@ -80,63 +84,12 @@ export const TradersCalculator = ({ calculatorSection }: PropsType) => {
             boxSizing: "border-box",
             border: "5px solid #F6F8FA",
             borderRadius: "40px",
-            height: 500,
+            minHeight: 500,
             mt: "50px",
           }}
         >
-          <Box sx={{ width: "100%", mt: "120px" }}>Блок 1</Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              width: "100%",
-              mb: "40px",
-              gap: "20px",
-            }}
-          >
-            <Button
-              color="secondary"
-              variant="contained"
-              sx={{
-                textTransform: "none",
-                borderRadius: 30,
-                boxShadow: "none",
-                bgcolor: "#F7D0FF",
-                color: "#A808C8",
-                fontFamily: '"Manrope", sans-serif',
-                fontWeight: 500,
-                fontSize: 25,
-                px: 3.6,
-                py: 1,
-                transition: "background-color 0.5s",
-                "&:hover": {
-                  boxShadow: "none",
-                  bgcolor: "#f2b7feff",
-                },
-              }}
-            >
-              Prev
-            </Button>
-            <Button
-              color="secondary"
-              variant="contained"
-              sx={{
-                textTransform: "none",
-                borderRadius: 30,
-                boxShadow: "none",
-                fontFamily: '"Manrope", sans-serif',
-                fontWeight: 500,
-                fontSize: 25,
-                px: 3.6,
-                py: 1,
-                "&:hover": {
-                  boxShadow: "none",
-                },
-              }}
-            >
-              Next
-            </Button>
-          </Box>
+          <Steps />
+          <ButtonsContainer />
         </Box>
       </Box>
     </Container>

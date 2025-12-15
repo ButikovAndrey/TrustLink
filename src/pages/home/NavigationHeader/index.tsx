@@ -95,16 +95,6 @@ export const NavigationHeader = ({
             fontSize: 13,
             fontWeight: 500,
             "&:hover": { bgcolor: "#8C06B0", color: "white" },
-            "&.Mui-focusVisible": {
-              backgroundColor: "transparent",
-            },
-            "&.Mui-focusVisible:hover": {
-              backgroundColor: "#8C06B0",
-              color: "white",
-            },
-            "&:focus": {
-              backgroundColor: "transparent",
-            },
           }}
         >
           <Live style={{ marginRight: "10px" }} />
@@ -140,6 +130,7 @@ export const NavigationHeader = ({
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem
+          autoFocus
           onClick={handleClose}
           sx={{
             width: "95%",
@@ -155,6 +146,10 @@ export const NavigationHeader = ({
               bgcolor: "#8C06B0",
               color: "white",
               boxShadow: 3,
+            },
+            "&:focus": {
+              bgcolor: "#8C06B0",
+              color: "white",
             },
           }}
         >
