@@ -4,6 +4,7 @@ import { Button } from "@mui/material";
 export const RetryJoinButtons = () => {
   const step = useAppStore((store) => store.step);
   const reset = useAppStore((store) => store.reset);
+  const setOpen = useAppStore((store) => store.setOpenTR);
   if (step !== 4) return null;
   return (
     <>
@@ -45,7 +46,7 @@ export const RetryJoinButtons = () => {
             boxShadow: "none",
           },
         }}
-        //   onClick={increase}
+        onClick={setOpen}
       >
         Join now!
       </Button>

@@ -5,10 +5,11 @@ import { Button } from "@mui/material";
 export const Step1 = () => {
   const value = useAppStore((store) => store.step1value);
   const setValue = useAppStore((store) => store.setStep1value);
+
   return (
     <>
-      {["PayIN", "PayIN + PayOUT"].map((name) => {
-        const isSelected = value.includes(name);
+      {["PayIN Only", "PayIN + PayOUT"].map((name) => {
+        const isSelected = value === name;
         return (
           <Button
             startIcon={

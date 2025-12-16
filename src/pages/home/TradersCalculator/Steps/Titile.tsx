@@ -9,7 +9,7 @@ export const Title = () => {
       case 0:
         return ["Select Currency", "Select One Option"];
       case 1:
-        return ["Operation Type", "Multi-select"];
+        return ["Operation Type", "Select One Option"];
       case 2:
         return ["Select Payment Methods", "Multi-select"];
       case 3:

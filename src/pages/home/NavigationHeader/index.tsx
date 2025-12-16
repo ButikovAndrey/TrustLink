@@ -6,6 +6,7 @@ import {
   TrustLink,
   TrustLinkSymbol,
 } from "@/icons";
+import { useAppStore } from "@/store";
 import { Box, Divider, Menu, MenuItem, Typography } from "@mui/material";
 import { MouseEvent, RefObject, useState } from "react";
 
@@ -20,6 +21,7 @@ export const NavigationHeader = ({
   calculatorSection,
   contactsSection,
 }: PropsType) => {
+  const setOpen = useAppStore((store) => store.setOpenTR);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: MouseEvent<SVGSVGElement>) => {
@@ -131,7 +133,10 @@ export const NavigationHeader = ({
         <Divider sx={{ my: 0.5 }} />
         <MenuItem
           autoFocus
-          onClick={handleClose}
+          onClick={() => {
+            setOpen();
+            handleClose();
+          }}
           sx={{
             width: "95%",
             justifySelf: "center",

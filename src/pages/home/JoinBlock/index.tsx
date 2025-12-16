@@ -1,6 +1,8 @@
+import { useAppStore } from "@/store";
 import { Button } from "@mui/material";
 
 export const JoinBlock = () => {
+  const setOpen = useAppStore((store) => store.setOpenTR);
   return (
     <>
       <Button
@@ -24,6 +26,7 @@ export const JoinBlock = () => {
         fullWidth
         color="secondary"
         variant="contained"
+        onClick={setOpen}
         sx={{
           textTransform: "none",
           boxShadow: "none",

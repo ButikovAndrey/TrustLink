@@ -16,6 +16,7 @@ import {
   SLiveInnerBox,
 } from "@/pages/home/styles";
 import { Footer } from "@/pages/home/Footer";
+import { TraderRegistration } from "@/pages/home/TraderRegistration";
 
 export const Home = () => {
   const liveSection = useRef(null);
@@ -51,6 +52,7 @@ export const Home = () => {
       <TradersCalculator calculatorSection={calculatorSection} />
       <Footer liveSection={liveSection} joinSection={joinSection} />
       <Box ref={contactsSection} />
+      <TraderRegistration />
     </>
   );
 };
