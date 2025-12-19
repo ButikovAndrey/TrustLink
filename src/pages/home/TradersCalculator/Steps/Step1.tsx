@@ -29,6 +29,7 @@ export const Step1 = () => {
               fontWeight: 500,
               fontSize: 25,
               width: 302,
+              height: 60,
               py: 1,
               transition: "background-color 0.5s",
               "&:hover": {

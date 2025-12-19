@@ -1,4 +1,8 @@
 import {
+  formatPhoneNumber,
+  formatTelegramInput,
+} from "@/helpers/stringFormats";
+import {
   Bookmark,
   Calculator2,
   Courthouse,
@@ -16,6 +20,7 @@ export interface IFieldConfig {
   IconElem: FunctionComponent<SVGProps<SVGSVGElement>>;
   values: string[] | string;
   placeholder: string;
+  strFormatter?: (input: string) => string;
 }
 
 export const fieldsConfig: IFieldConfig[] = [
@@ -60,15 +65,26 @@ export const fieldsConfig: IFieldConfig[] = [
     IconElem: Dog,
     placeholder: "username",
     values: "",
+    strFormatter: formatTelegramInput,
   },
   {
     title: "Emergency phone number",
     IconElem: Calculator2,
     placeholder: "+7 1234567890",
     values: "",
+    strFormatter: formatPhoneNumber,
   },
   {
     title: "Who can give a recommendation?",
+    IconElem: MessageText,
+    placeholder: "Recommendation contact person",
+    values: "",
+  },
+];
+
+export const fullNameConfig: IFieldConfig[] = [
+  {
+    title: "Your full name",
     IconElem: MessageText,
     placeholder: "Recommendation contact person",
     values: "",

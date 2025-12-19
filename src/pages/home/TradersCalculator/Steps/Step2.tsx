@@ -59,6 +59,7 @@ export const Step2 = () => {
               fontWeight: 500,
               fontSize: 25,
               width: 142,
+              height: 60,
               py: 1,
             }}
           >

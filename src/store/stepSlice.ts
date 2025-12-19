@@ -1,4 +1,4 @@
-import { multiSelect } from "@/store/stepSLiceHelpers";
+import { multiSelect } from "@/store/stepSliceHelpers";
 import { StateCreator } from "zustand";
 
 export interface StepSlice {

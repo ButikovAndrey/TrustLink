@@ -8,18 +8,25 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export const RegistrationField = ({
   title,
   IconElem,
   values,
   placeholder,
+  strFormatter,
 }: IFieldConfig) => {
-  const [age, setAge] = useState("");
+  const [value, setValue] = useState("");
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+  const handleChange = (
+    event:
+      | SelectChangeEvent
+      | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setValue(
+      strFormatter ? strFormatter(event.target.value) : event.target.value
+    );
   };
 
   return (
@@ -70,6 +77,8 @@ export const RegistrationField = ({
               id="outlined-basic"
               placeholder={placeholder}
               variant="outlined"
+              value={value}
+              onChange={handleChange}
               sx={{
                 p: 0,
                 m: 0,
@@ -78,8 +87,8 @@ export const RegistrationField = ({
                   py: 1,
                   fontFamily: '"Manrope", sans-serif',
                   fontSize: 25,
-                  fontWeight: 500,
-                  color: "#A808C8",
+                  // fontWeight: 500,
+                  color: "#440A8F",
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   border: "none",
@@ -92,8 +101,8 @@ export const RegistrationField = ({
                   opacity: 1,
                 },
                 "& input:-webkit-autofill": {
-                  WebkitTextFillColor: "#A808C8", // цвет текста
-                  WebkitBoxShadow: "none", // убираем фон
+                  WebkitTextFillColor: "#440A8F",
+                  WebkitBoxShadow: "none",
                   bgcolor: "#FDF0FF",
                   transition: "background-color 9999s ease-in-out 0s",
                 },
@@ -101,7 +110,7 @@ export const RegistrationField = ({
             />
           ) : (
             <Select
-              value={age}
+              value={value}
               onChange={handleChange}
               displayEmpty
               IconComponent={() => null}
@@ -112,8 +121,8 @@ export const RegistrationField = ({
                       sx={{
                         fontFamily: '"Manrope", sans-serif',
                         fontSize: 25,
-                        fontWeight: 500,
-                        color: "#A808C8",
+                        fontWeight: 400,
+                        color: "#440A8F",
                       }}
                     >
                       {selected}
@@ -135,14 +144,16 @@ export const RegistrationField = ({
               }}
               sx={{
                 "& .MuiOutlinedInput-notchedOutline": { border: "none" },
-                "& .MuiSelect-select": { paddingLeft: 0 }, // чтобы текст был на одной линии
+                "& .MuiSelect-select": { paddingLeft: 0 },
               }}
             >
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
               {values.map((value) => (
-                <MenuItem value={value}>{value}</MenuItem>
+                <MenuItem key={value} value={value}>
+                  {value}
+                </MenuItem>
               ))}
             </Select>
           )}
