@@ -48,7 +48,7 @@ export const SJoinBurger: SxProps = {
 
 export const SDivider: SxProps = { my: 0.5 };
 
-export const SIcon: CSSProperties = { marginRight: "10px" };
+export const SIcon: CSSProperties = { width: "30px", marginRight: "10px" };
 
 export const SJoinTitle: SxProps = { width: "100%", textAlign: "center" };
 
@@ -58,4 +58,4 @@ export const SHeadLogo: SxProps = {
   alignItems: "center",
 };
 
-export const SFlag: CSSProperties = { cursor: "pointer" };
+export const SFakeMenuItem: SxProps = { height: 0, p: 0, m: 0 };

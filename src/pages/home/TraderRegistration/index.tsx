@@ -21,8 +21,8 @@ export const TraderRegistration = () => {
   const open = useAppStore((store) => store.openTR);
   const setClose = useAppStore((store) => store.setCloseTR);
 
-  const value = useAppStore((store) => store.step0value);
-  const setValue = useAppStore((store) => store.setStep0value);
+  const readyKYC = useAppStore((store) => store.readyKYC);
+  const setReadyKYC = useAppStore((store) => store.setReadyKYC);
 
   return (
     <Modal open={open} onClose={setClose}>
@@ -48,18 +48,19 @@ export const TraderRegistration = () => {
               Are you ready to pass the KYC?
             </Typography>
             <Box sx={SKYCButtonsBox}>
-              {["Yes", "No"].map((name) => {
-                const isSelected = name === value;
+              {[true, false].map((select) => {
+                const title = select ? "Yes" : "No";
+                const isSelected = select === readyKYC;
                 return (
                   <Button
-                    key={name}
+                    key={title}
                     startIcon={isSelected && <Ok style={SOKMark} />}
                     color="secondary"
                     variant={isSelected ? "outlined" : "contained"}
-                    onClick={() => setValue(name)}
+                    onClick={() => setReadyKYC(select)}
                     sx={SButton(isSelected)}
                   >
-                    {name}
+                    {title}
                   </Button>
                 );
               })}

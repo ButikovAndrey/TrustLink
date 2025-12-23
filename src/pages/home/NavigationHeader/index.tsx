@@ -1,8 +1,9 @@
-import { Flag, TrustLink, TrustLinkSymbol } from "@/icons";
-import { SFlag, SHeadLogo, SNavContainer } from "./styles";
+import { TrustLink, TrustLinkSymbol } from "@/icons";
+import { SHeadLogo, SNavContainer } from "./styles";
 import { Box } from "@mui/material";
 import { RefObject } from "react";
 import { LeftBurger } from "./LeftBurger";
+import { RigthtFlag } from "@/pages/home/NavigationHeader/RigthtFlag";
 
 type PropsType = {
   liveSection: RefObject<null>;
@@ -26,7 +27,7 @@ export const NavigationHeader = ({
         <TrustLinkSymbol />
         <TrustLink />
       </Box>
-      <Flag style={SFlag} />
+      <RigthtFlag />
     </Box>
   );
 };

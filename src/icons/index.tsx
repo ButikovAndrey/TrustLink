@@ -9,6 +9,7 @@ import { ReactComponent as Card } from "./Card.svg";
 import { ReactComponent as Courthouse } from "./Courthouse.svg";
 import { ReactComponent as Crypto } from "./Crypto.svg";
 import { ReactComponent as Dog } from "./Dog.svg";
+import { ReactComponent as DownloadMark } from "./DownloadMark.svg";
 import { ReactComponent as Ellipse } from "./Ellipse.svg";
 import { ReactComponent as Flag } from "./Flag.svg";
 import { ReactComponent as Game } from "./Game.svg";
@@ -54,6 +55,7 @@ export {
   Courthouse,
   Crypto,
   Dog,
+  DownloadMark,
   Ellipse,
   Flag,
   Game,

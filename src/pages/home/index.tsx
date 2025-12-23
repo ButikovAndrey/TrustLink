@@ -12,7 +12,6 @@ import { TraderRegistration } from "./TraderRegistration";
 export const Home = () => {
   const liveSection = useRef(null);
   const calculatorSection = useRef(null);
-  const joinSection = useRef(null);
   const contactsSection = useRef(null);
 
   return (
@@ -29,11 +28,10 @@ export const Home = () => {
         <Box ref={liveSection} sx={SLiveInnerBox}>
           <LiveTable />
           <JoinBlock />
-          <Box ref={joinSection} />
         </Box>
       </Container>
       <TradersCalculator calculatorSection={calculatorSection} />
-      <Footer liveSection={liveSection} joinSection={joinSection} />
+      <Footer liveSection={liveSection} />
       <Box ref={contactsSection} />
       <TraderRegistration />
     </>

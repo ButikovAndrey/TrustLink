@@ -10,13 +10,14 @@ import {
 } from "./styles";
 import { Box, Container, Typography } from "@mui/material";
 import { RefObject } from "react";
+import { useAppStore } from "@/store";
 
 type PropsType = {
   liveSection: RefObject<null>;
-  joinSection: RefObject<null>;
 };
 
-export const Footer = ({ liveSection, joinSection }: PropsType) => {
+export const Footer = ({ liveSection }: PropsType) => {
+  const setOpen = useAppStore((store) => store.setOpenTR);
   const scrollToSection = (
     ref: RefObject<HTMLDivElement>,
     block: ScrollLogicalPosition | undefined = "start"
@@ -54,31 +55,13 @@ export const Footer = ({ liveSection, joinSection }: PropsType) => {
           >
             Live Activities
           </Typography>
-          <Typography
-            onClick={() =>
-              scrollToSection(
-                joinSection as unknown as RefObject<HTMLDivElement>,
-                "center"
-              )
-            }
-            sx={SFooterLink}
-          >
+          <Typography onClick={setOpen} sx={SFooterLink}>
             Join now
           </Typography>
         </Box>
         <Box sx={SResourcesBox}>
           <Typography sx={SFooterTitle}>Resources</Typography>
-          <Typography
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-            sx={SFooterLink}
-          >
-            Terms & Conditions
-          </Typography>
+          <Typography sx={SFooterLink}>Terms & Conditions</Typography>
           <Typography sx={SFooterLink}>Privacy Policy</Typography>
           <Typography sx={SFooterLink}>{"Support (Telegram)"}</Typography>
           <Typography sx={SFooterLink}>Contact Us</Typography>
