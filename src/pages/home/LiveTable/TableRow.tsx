@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowUp, Ellipse } from "@/icons";
-import { ITableCotent } from "@/pages/home/LiveTable/constants";
+import { ITableCotent } from "./constants";
 import {
   SArrowBox,
   SArrowText,
@@ -19,7 +19,7 @@ import {
   SRowBoxOuter,
   SSourceBoxInner,
   SSourceBoxText,
-} from "@/pages/home/LiveTable/styles";
+} from "./styles";
 import { Box, Typography } from "@mui/material";
 
 type PropsType = {

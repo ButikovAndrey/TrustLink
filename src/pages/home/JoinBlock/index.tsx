@@ -1,4 +1,4 @@
-import { SJoinButton } from "@/pages/home/JoinBlock/styles";
+import { SJoinButton } from "./styles";
 import { useAppStore } from "@/store";
 import { Button } from "@mui/material";
 

@@ -1,13 +1,18 @@
-import { headerFaces } from "@/pages/home/AnimatedHead/constants";
+import { Banner } from "@/icons";
+import { headerFaces } from "./constants";
 import {
+  SBanner,
   SCommentBox,
+  SHeadAnimationContainer,
+  SHeaderInnerContainer,
+  SHeadTitle,
   SLeftContainerBox,
   SPaymentBox,
   SPaymentText,
   SPersonIcon,
   SPersonIconBox,
   SToggleContainer,
-} from "@/pages/home/AnimatedHead/styles";
+} from "./styles";
 import { Box, Typography } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 
@@ -32,23 +37,29 @@ export const AnimatedHead = () => {
   const values = useMemo(() => headerFaces[personParams], [personParams]);
 
   return (
-    <>
-      <Box sx={SPersonIconBox(fade)}>
-        <values.personIcon style={SPersonIcon} />
-      </Box>
-      <Box sx={SToggleContainer}>
-        <Box sx={SLeftContainerBox(fade, values.toggle)}>
-          <Box sx={SPaymentBox(values.paymentBGcolor)}>
-            <values.paymentIcon />
-            <Typography sx={SPaymentText(values.paymentTextColor)}>
-              {values.paymentName}
-            </Typography>
-          </Box>
+    <Box sx={SHeaderInnerContainer}>
+      <Box sx={SHeadAnimationContainer}>
+        <Box sx={SPersonIconBox(fade)}>
+          <values.personIcon style={SPersonIcon} />
         </Box>
-        <Typography sx={SCommentBox(fade, values.toggle)}>
-          {values.comment}
+        <Box sx={SToggleContainer}>
+          <Box sx={SLeftContainerBox(fade, values.toggle)}>
+            <Box sx={SPaymentBox(values.paymentBGcolor)}>
+              <values.paymentIcon />
+              <Typography sx={SPaymentText(values.paymentTextColor)}>
+                {values.paymentName}
+              </Typography>
+            </Box>
+          </Box>
+          <Typography sx={SCommentBox(fade, values.toggle)}>
+            {values.comment}
+          </Typography>
+        </Box>
+        <Typography sx={SHeadTitle} component="h1">
+          Real-time transaction platform for traders
         </Typography>
       </Box>
-    </>
+      <Banner style={SBanner} />
+    </Box>
   );
 };

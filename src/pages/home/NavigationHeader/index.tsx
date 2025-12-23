@@ -2,7 +2,7 @@ import { Flag, TrustLink, TrustLinkSymbol } from "@/icons";
 import { SFlag, SHeadLogo, SNavContainer } from "./styles";
 import { Box } from "@mui/material";
 import { RefObject } from "react";
-import { LeftBurger } from "@/pages/home/NavigationHeader/LeftBurger";
+import { LeftBurger } from "./LeftBurger";
 
 type PropsType = {
   liveSection: RefObject<null>;

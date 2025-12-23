@@ -16,7 +16,7 @@ import {
   SRowBox,
   SRowContainer,
   STitle,
-} from "@/pages/home/LiveTable/styles";
+} from "./styles";
 
 export const LiveTable = () => {
   const [index, setIndex] = useState(0);

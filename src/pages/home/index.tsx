@@ -1,22 +1,13 @@
-import { Container, Typography, Box } from "@mui/material";
-import { Banner } from "@/icons";
-import { LiveTable } from "@/pages/home/LiveTable";
-import { AnimatedHead } from "@/pages/home/AnimatedHead";
-import { JoinBlock } from "@/pages/home/JoinBlock";
-import { NavigationHeader } from "@/pages/home/NavigationHeader";
+import { Container, Box } from "@mui/material";
+import { LiveTable } from "./LiveTable";
+import { AnimatedHead } from "./AnimatedHead";
+import { JoinBlock } from "./JoinBlock";
+import { NavigationHeader } from "./NavigationHeader";
 import { useRef } from "react";
-import { TradersCalculator } from "@/pages/home/TradersCalculator";
-import {
-  SBanner,
-  SHeadAnimationContainer,
-  SHeaderContainer,
-  SHeaderInnerContainer,
-  SHeadTitle,
-  SLiveContainer,
-  SLiveInnerBox,
-} from "@/pages/home/styles";
-import { Footer } from "@/pages/home/Footer";
-import { TraderRegistration } from "@/pages/home/TraderRegistration";
+import { TradersCalculator } from "./TradersCalculator";
+import { SHeaderContainer, SLiveContainer, SLiveInnerBox } from "./styles";
+import { Footer } from "./Footer";
+import { TraderRegistration } from "./TraderRegistration";
 
 export const Home = () => {
   const liveSection = useRef(null);
@@ -32,15 +23,7 @@ export const Home = () => {
           calculatorSection={calculatorSection}
           contactsSection={contactsSection}
         />
-        <Box sx={SHeaderInnerContainer}>
-          <Box sx={SHeadAnimationContainer}>
-            <AnimatedHead />
-            <Typography sx={SHeadTitle} component="h1">
-              Real-time transaction platform for traders
-            </Typography>
-          </Box>
-          <Banner style={SBanner} />
-        </Box>
+        <AnimatedHead />
       </Container>
       <Container component="datalist" sx={SLiveContainer}>
         <Box ref={liveSection} sx={SLiveInnerBox}>
