@@ -1,6 +1,8 @@
 import { Ok } from "@/icons";
+import { SS1Button } from "./styles";
 import { useAppStore } from "@/store";
 import { Button } from "@mui/material";
+import { step1methods } from "./constats";
 
 export const Step1 = () => {
   const value = useAppStore((store) => store.step1value);
@@ -8,35 +10,16 @@ export const Step1 = () => {
 
   return (
     <>
-      {["PayIN Only", "PayIN + PayOUT"].map((name) => {
+      {step1methods.map((name) => {
         const isSelected = value === name;
         return (
           <Button
-            startIcon={
-              isSelected ? <Ok style={{ marginRight: "2px" }} /> : undefined
-            }
+            startIcon={isSelected && <Ok style={{ marginRight: "2px" }} />}
             key={name}
             onClick={() => setValue(name)}
             color="secondary"
             variant={isSelected ? "outlined" : "contained"}
-            sx={{
-              textTransform: "none",
-              borderRadius: 30,
-              boxShadow: "none",
-              bgcolor: isSelected ? undefined : "#F7D0FF",
-              color: "#A808C8",
-              fontFamily: '"Manrope", sans-serif',
-              fontWeight: 500,
-              fontSize: 25,
-              width: 302,
-              height: 60,
-              py: 1,
-              transition: "background-color 0.5s",
-              "&:hover": {
-                boxShadow: "none",
-                bgcolor: isSelected ? undefined : "#f2b7feff",
-              },
-            }}
+            sx={SS1Button(isSelected)}
           >
             {name}
           </Button>

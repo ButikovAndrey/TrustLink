@@ -1,4 +1,14 @@
-import { IFieldConfig } from "@/pages/home/TraderRegistration/constants";
+import { IFieldConfig } from "./constants";
+import {
+  SFRSelect,
+  SRFContainer,
+  SRFForm,
+  SRFInnerBox,
+  SRFPlaceholder,
+  SRFSelected,
+  SRFTextField,
+  SRFTitle,
+} from "./styles";
 import {
   Box,
   FormControl,
@@ -30,83 +40,18 @@ export const RegistrationField = ({
   };
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: 105,
-        bgcolor: "#FDF0FF",
-        borderRadius: "40px",
-        boxSizing: "border-box",
-        py: "20px",
-        px: "30px",
-        mt: "20px",
-      }}
-    >
-      <Typography
-        sx={{
-          width: "100%",
-          fontFamily: '"Manrope", sans-serif',
-          fontSize: 15,
-          fontWeight: 500,
-          color: "#A808C8",
-        }}
-      >
-        {title}
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "flex-start",
-          alignItems: "center",
-        }}
-      >
+    <Box sx={SRFContainer}>
+      <Typography sx={SRFTitle}>{title}</Typography>
+      <Box sx={SRFInnerBox}>
         <IconElem />
-        <FormControl
-          sx={{
-            p: 0,
-            m: 0,
-            ml: { xs: 1.5, sm: 2, md: "18px" },
-            flex: 1,
-            width: "100%",
-          }}
-          size="small"
-        >
+        <FormControl sx={SRFForm} size="small">
           {typeof values === "string" ? (
             <TextField
-              id="outlined-basic"
               placeholder={placeholder}
               variant="outlined"
               value={value}
               onChange={handleChange}
-              sx={{
-                p: 0,
-                m: 0,
-                "& .MuiOutlinedInput-input": {
-                  px: 0,
-                  py: 1,
-                  fontFamily: '"Manrope", sans-serif',
-                  fontSize: 25,
-                  // fontWeight: 500,
-                  color: "#440A8F",
-                },
-                "& .MuiOutlinedInput-notchedOutline": {
-                  border: "none",
-                },
-                "& input::placeholder": {
-                  fontFamily: '"Manrope", sans-serif',
-                  fontSize: { xs: 20, sm: 22, md: 25 },
-                  fontWeight: 500,
-                  color: "#F7D0FF",
-                  opacity: 1,
-                },
-                "& input:-webkit-autofill": {
-                  WebkitTextFillColor: "#440A8F",
-                  WebkitBoxShadow: "none",
-                  bgcolor: "#FDF0FF",
-                  transition: "background-color 9999s ease-in-out 0s",
-                },
-              }}
+              sx={SRFTextField}
             />
           ) : (
             <Select
@@ -116,40 +61,14 @@ export const RegistrationField = ({
               IconComponent={() => null}
               renderValue={(selected) => {
                 if (selected) {
-                  return (
-                    <Typography
-                      sx={{
-                        fontFamily: '"Manrope", sans-serif',
-                        fontSize: 25,
-                        fontWeight: 400,
-                        color: "#440A8F",
-                      }}
-                    >
-                      {selected}
-                    </Typography>
-                  );
+                  return <Typography sx={SRFSelected}>{selected}</Typography>;
                 }
                 return (
-                  <Typography
-                    sx={{
-                      fontFamily: '"Manrope", sans-serif',
-                      fontSize: { xs: 20, sm: 22, md: 25 },
-                      fontWeight: 500,
-                      color: "#F7D0FF",
-                    }}
-                  >
-                    {placeholder}
-                  </Typography>
+                  <Typography sx={SRFPlaceholder}>{placeholder}</Typography>
                 );
               }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": { border: "none" },
-                "& .MuiSelect-select": { paddingLeft: 0 },
-              }}
+              sx={SFRSelect}
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
               {values.map((value) => (
                 <MenuItem key={value} value={value}>
                   {value}

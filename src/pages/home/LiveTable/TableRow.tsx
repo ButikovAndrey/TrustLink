@@ -1,5 +1,25 @@
 import { ArrowDown, ArrowUp, Ellipse } from "@/icons";
 import { ITableCotent } from "@/pages/home/LiveTable/constants";
+import {
+  SArrowBox,
+  SArrowText,
+  SComment,
+  SCommentBox,
+  SCommentText,
+  SCourceBox,
+  SPaymentMethodBox,
+  SPaymentMethodBoxInner,
+  SPaymentMethodText,
+  SPersonBox,
+  SPersonIcon,
+  SPersonName,
+  SRowAmount,
+  SRowAmountBox,
+  SRowBoxInner,
+  SRowBoxOuter,
+  SSourceBoxInner,
+  SSourceBoxText,
+} from "@/pages/home/LiveTable/styles";
 import { Box, Typography } from "@mui/material";
 
 type PropsType = {
@@ -8,218 +28,40 @@ type PropsType = {
 
 export const TableRow = ({ row }: PropsType) => {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "100%",
-        height: 45,
-        border: "1px solid #E4E4E4",
-        borderRadius: "4.2px",
-        boxSizing: "border-box",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          width: 200,
-          height: "100%",
-          justifyContent: "flex-start",
-          px: 0.5,
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            width: 165,
-            minWidth: 165,
-            gap: 1,
-            textWrap: "nowrap",
-            bgcolor: "#F2F8FF",
-            borderRadius: 40,
-            height: 32,
-            px: 1,
-          }}
-        >
-          <row.personIcon
-            style={{
-              width: "21px",
-              height: "21px",
-              borderRadius: "50%",
-              textWrap: "nowrap",
-              marginLeft: "3px",
-            }}
-          />
-          <Typography
-            sx={{
-              color: "#727272",
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 15,
-              fontWeight: 300,
-            }}
-          >
-            {row.personName}
-          </Typography>
+    <Box sx={SRowBoxOuter}>
+      <Box sx={SRowBoxInner}>
+        <Box sx={SPersonBox}>
+          <row.personIcon style={SPersonIcon} />
+          <Typography sx={SPersonName}>{row.personName}</Typography>
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          gap: 1,
-          textWrap: "nowrap",
-          width: 155,
-          minWidth: 155,
-        }}
-      >
-        <Typography
-          sx={{
-            color: "#727272",
-            fontFamily: '"Inter", sans-serif',
-            fontSize: 13,
-            fontWeight: 500,
-          }}
-        >
-          {row.amount}
-        </Typography>
-        <Box
-          sx={{
-            display: "flex",
-            height: 26.5,
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 1,
-            borderRadius: "40px",
-            bgcolor: row.margin > 0 ? "#F0FEED" : "#FFEBE8",
-            px: 1,
-            textWrap: "nowrap",
-          }}
-        >
+      <Box sx={SRowAmountBox}>
+        <Typography sx={SRowAmount}>{row.amount}</Typography>
+        <Box sx={SArrowBox(row.margin > 0)}>
           {row.margin > 0 ? <ArrowUp /> : <ArrowDown />}
-          <Typography
-            sx={{
-              color: row.margin > 0 ? "#259800" : "#FF1818",
-              pr: 1,
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 13,
-              fontWeight: 500,
-            }}
-          >
+          <Typography sx={SArrowText(row.margin > 0)}>
             {Math.abs(row.margin).toString()}
           </Typography>
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          height: "100%",
-          width: 155,
-          minWidth: 155,
-          alignItems: "center",
-          justifyContent: "flex-start",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            height: 27,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            gap: 1,
-            borderRadius: "40px",
-            bgcolor: "#F8F8F8",
-            px: 1,
-            textWrap: "nowrap",
-          }}
-        >
+      <Box sx={SCommentBox}>
+        <Box sx={SComment}>
           <Ellipse />
-          <Typography
-            sx={{
-              color: "#5A5A5A",
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 13,
-              fontWeight: 500,
-            }}
-          >
-            {row.comment || "Comment"}
-          </Typography>
+          <Typography sx={SCommentText}>{row.comment || "Comment"}</Typography>
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          height: "100%",
-          width: 135,
-          minWidth: 135,
-          alignItems: "center",
-          justifyContent: "flex-start",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            width: 100,
-            minWidth: 100,
-            height: 27,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            gap: 1,
-            borderRadius: "40px",
-            bgcolor: row.sourceColor,
-            px: 1,
-          }}
-        >
+      <Box sx={SCourceBox}>
+        <Box sx={SSourceBoxInner(row.sourceColor)}>
           <row.sourceIcon />
-          <Typography
-            sx={{
-              color: row.sourceTextColor,
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 13,
-              fontWeight: 500,
-            }}
-          >
+          <Typography sx={SSourceBoxText(row.sourceTextColor)}>
             {row.source}
           </Typography>
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          height: "100%",
-          width: 145,
-          minWidth: 145,
-          alignItems: "center",
-          justifyContent: "flex-start",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            width: 100,
-            minWidth: 100,
-            height: 27,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            gap: 1,
-            borderRadius: "40px",
-            bgcolor: "#F0FEED",
-            px: 1,
-          }}
-        >
+      <Box sx={SPaymentMethodBox}>
+        <Box sx={SPaymentMethodBoxInner}>
           <row.paymentMethodIcon />
-          <Typography
-            sx={{
-              color: "#259800",
-              fontFamily: '"Inter", sans-serif',
-              fontSize: 13,
-              fontWeight: 500,
-            }}
-          >
-            {row.paymentMethod}
-          </Typography>
+          <Typography sx={SPaymentMethodText}>{row.paymentMethod}</Typography>
         </Box>
       </Box>
     </Box>

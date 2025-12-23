@@ -10,6 +10,13 @@ import {
 } from "./constants";
 import { TableRow } from "./TableRow";
 import { Live } from "@/icons";
+import {
+  SLiveTableBox,
+  SLiveTableContainer,
+  SRowBox,
+  SRowContainer,
+  STitle,
+} from "@/pages/home/LiveTable/styles";
 
 export const LiveTable = () => {
   const [index, setIndex] = useState(0);
@@ -54,63 +61,16 @@ export const LiveTable = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          gap: 1,
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-          mb: "50px",
-        }}
-      >
+      <Box sx={SLiveTableContainer}>
         <Live />
-        <Typography
-          sx={{
-            fontWeight: 400,
-            fontFamily: '"Manrope", sans-serif',
-            fontSize: {
-              xs: 28,
-              sm: 32,
-              md: 40,
-            },
-            color: "#1B2128",
-          }}
-          component="h3"
-        >
+        <Typography sx={STitle} component="h3">
           Live Activity
         </Typography>
       </Box>
-      <Box
-        sx={{
-          height: `${MAX_VISIBLE * ROW_HEIGHT}px`,
-          overflow: "hidden",
-          width: "100%",
-          maxWidth: 790,
-          mb: "15px",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            transform: `translateY(${shift}px)`,
-            transition: transitionEnabled
-              ? `transform ${ANIM_DURATION}ms ease`
-              : "none",
-            overflow: "auto",
-          }}
-        >
+      <Box sx={SLiveTableBox}>
+        <Box sx={SRowContainer({ shift, transitionEnabled })}>
           {rows.map((row, i) => (
-            <Box
-              key={row.personName}
-              sx={{
-                height: `${ROW_HEIGHT}px`,
-                bgcolor: i === highlightIndex ? "#F0FEED" : "transparent",
-                opacity: i === highlightIndex ? 0.75 : 1,
-                transition: `${HIGHLIGHT_DURATION}ms`,
-              }}
-            >
+            <Box key={row.personName} sx={SRowBox(i === highlightIndex)}>
               <TableRow row={row} />
             </Box>
           ))}

@@ -1,3 +1,4 @@
+import { SSSubtitle, SSTitle, SSTitleContainer } from "./styles";
 import { useAppStore } from "@/store";
 import { Box, Typography } from "@mui/material";
 import { useMemo } from "react";
@@ -22,39 +23,9 @@ export const Title = () => {
     }
   }, [step]);
   return (
-    <Box
-      sx={{
-        display: "flex",
-        width: "100%",
-        flexDirection: "column",
-        alignItems: "center",
-        mt: step === 4 ? 3.5 : { xs: 4, sm: 10, md: 20 },
-      }}
-    >
-      <Typography
-        sx={{
-          fontFamily: '"Manrope", sans-serif',
-          fontWeight: 400,
-          fontSize: 25,
-          color: "#1B2128",
-          textAlign: "center",
-        }}
-      >
-        {title}
-      </Typography>
-      {Boolean(subtitle) && (
-        <Typography
-          sx={{
-            fontFamily: '"Manrope", sans-serif',
-            fontWeight: 400,
-            fontSize: 15,
-            color: "#868686",
-            textAlign: "center",
-          }}
-        >
-          {subtitle}
-        </Typography>
-      )}
+    <Box sx={SSTitleContainer(step === 4)}>
+      <Typography sx={SSTitle}>{title}</Typography>
+      {Boolean(subtitle) && <Typography sx={SSSubtitle}>{subtitle}</Typography>}
     </Box>
   );
 };

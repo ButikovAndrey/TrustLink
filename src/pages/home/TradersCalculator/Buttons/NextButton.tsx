@@ -1,3 +1,4 @@
+import { SSBNextButton } from "./styles";
 import { useAppStore } from "@/store";
 import { Button } from "@mui/material";
 import { useMemo } from "react";
@@ -34,19 +35,7 @@ export const NextButton = () => {
       color="secondary"
       variant="contained"
       disabled={!valueFilled}
-      sx={{
-        textTransform: "none",
-        borderRadius: 30,
-        boxShadow: "none",
-        fontFamily: '"Manrope", sans-serif',
-        fontWeight: 500,
-        fontSize: 25,
-        px: 3.6,
-        py: 1,
-        "&:hover": {
-          boxShadow: "none",
-        },
-      }}
+      sx={SSBNextButton}
       onClick={onNextClick}
     >
       Next

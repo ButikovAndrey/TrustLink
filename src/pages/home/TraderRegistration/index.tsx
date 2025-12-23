@@ -1,10 +1,20 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
-import { useAppStore } from "@/store";
-import { RegistrationField } from "@/pages/home/TraderRegistration/RegistrationField";
+import { fieldsConfig, fullNameConfig } from "./constants";
+import { RegistrationField } from "./RegistrationField";
 import {
-  fieldsConfig,
-  fullNameConfig,
-} from "@/pages/home/TraderRegistration/constants";
+  SBackButton,
+  SBottobButtonsBox,
+  SButton,
+  SKYCBox,
+  SKYCButtonsBox,
+  SKYCTitle,
+  SModalBoxInner,
+  SModalContainer,
+  SOKMark,
+  SSubmitButton,
+  STitle,
+} from "./styles";
+import { useAppStore } from "@/store";
 import { Ok } from "@/icons";
 
 export const TraderRegistration = () => {
@@ -16,45 +26,9 @@ export const TraderRegistration = () => {
 
   return (
     <Modal open={open} onClose={setClose}>
-      <Box
-        sx={{
-          position: "fixed",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "95vw",
-          maxWidth: 900,
-          maxHeight: "95vh",
-          bgcolor: "background.paper",
-          borderRadius: "40px",
-          boxSizing: "border-box",
-          boxShadow: 24,
-          overflow: "auto",
-        }}
-      >
-        <Box
-          sx={{
-            py: "40px",
-            px: {
-              xs: 2.5,
-              sm: 5,
-              md: "60px",
-            },
-          }}
-        >
-          <Typography
-            component="h3"
-            sx={{
-              width: "100%",
-              fontFamily: '"Manrope", sans-serif',
-              fontSize: 25,
-              fontWeight: 400,
-              color: "#1B2128",
-              textAlign: "center",
-              m: 0,
-              p: 0,
-            }}
-          >
+      <Box sx={SModalContainer}>
+        <Box sx={SModalBoxInner}>
+          <Typography component="h3" sx={STitle}>
             Trader Registration
           </Typography>
           {fieldsConfig.map(
@@ -69,72 +43,26 @@ export const TraderRegistration = () => {
               />
             )
           )}
-          <Box
-            sx={{
-              bgcolor: "#FDF0FF",
-              borderRadius: "40px",
-              display: "flex",
-              flexDirection: "column",
-              width: "100%",
-              boxSizing: "border-box",
-              px: "30px",
-              py: "20px",
-              mt: "20px",
-            }}
-          >
-            <Typography
-              sx={{
-                width: "100%",
-                fontFamily: '"Manrope", sans-serif',
-                fontSize: 15,
-                fontWeight: 400,
-                color: "#A808C8",
-                mb: "10px",
-                p: 0,
-              }}
-            >
+          <Box sx={SKYCBox}>
+            <Typography sx={SKYCTitle}>
               Are you ready to pass the KYC?
             </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                width: "100%",
-                justifyContent: "space-between",
-                gap: 1,
-              }}
-            >
-              {["Yes", "No"].map((name) => (
-                <Button
-                  key={name}
-                  startIcon={
-                    name === value ? (
-                      <Ok style={{ marginRight: "2px" }} />
-                    ) : undefined
-                  }
-                  color="secondary"
-                  variant={name === value ? "outlined" : "contained"}
-                  onClick={() => setValue(name)}
-                  sx={{
-                    textTransform: "none",
-                    borderRadius: 30,
-                    boxShadow: "none",
-                    bgcolor: name === value ? "#FDF0FF" : "white",
-                    color: "#A808C8",
-                    fontFamily: '"Manrope", sans-serif',
-                    fontWeight: 500,
-                    fontSize: 25,
-                    width: "100%",
-                    height: 60,
-                    py: 1,
-                    transition: "background-color 0.5s",
-                    "&:hover": {
-                      boxShadow: "none",
-                    },
-                  }}
-                >
-                  {name}
-                </Button>
-              ))}
+            <Box sx={SKYCButtonsBox}>
+              {["Yes", "No"].map((name) => {
+                const isSelected = name === value;
+                return (
+                  <Button
+                    key={name}
+                    startIcon={isSelected && <Ok style={SOKMark} />}
+                    color="secondary"
+                    variant={isSelected ? "outlined" : "contained"}
+                    onClick={() => setValue(name)}
+                    sx={SButton(isSelected)}
+                  >
+                    {name}
+                  </Button>
+                );
+              })}
             </Box>
           </Box>
           {fullNameConfig.map(
@@ -149,53 +77,16 @@ export const TraderRegistration = () => {
               />
             )
           )}
-          <Box sx={{ display: "flex", width: "100%", mt: "20px" }}>
+          <Box sx={SBottobButtonsBox}>
             <Button
               color="secondary"
               variant={"contained"}
               onClick={setClose}
-              sx={{
-                textTransform: "none",
-                borderRadius: 30,
-                boxShadow: "none",
-                bgcolor: "#F7D0FF",
-                color: "#A808C8",
-                fontFamily: '"Manrope", sans-serif',
-                fontWeight: 500,
-                fontSize: 25,
-                width: 117,
-                height: 60,
-                mr: "20px",
-                py: 1,
-                transition: "background-color 0.5s",
-                "&:hover": {
-                  boxShadow: "none",
-                },
-              }}
+              sx={SBackButton}
             >
               Back
             </Button>
-            <Button
-              color="secondary"
-              variant={"contained"}
-              sx={{
-                textTransform: "none",
-                borderRadius: 30,
-                boxShadow: "none",
-                bgcolor: "#A808C8",
-                color: "white",
-                fontFamily: '"Manrope", sans-serif',
-                fontWeight: 500,
-                fontSize: 25,
-                width: "100%",
-                height: 60,
-                py: 1,
-                transition: "background-color 0.5s",
-                "&:hover": {
-                  boxShadow: "none",
-                },
-              }}
-            >
+            <Button color="secondary" variant={"contained"} sx={SSubmitButton}>
               Submit Application
             </Button>
           </Box>

@@ -1,43 +1,29 @@
 import { Ok } from "@/icons";
+import { SS0Button } from "./styles";
 import { useAppStore } from "@/store";
 import { Button } from "@mui/material";
+import { step0currencies } from "./constats";
 
 export const Step0 = () => {
   const value = useAppStore((store) => store.step0value);
   const setValue = useAppStore((store) => store.setStep0value);
   return (
     <>
-      {["RUB", "KGZ", "AZN"].map((name) => (
-        <Button
-          key={name}
-          startIcon={
-            name === value ? <Ok style={{ marginRight: "2px" }} /> : undefined
-          }
-          color="secondary"
-          variant={name === value ? "outlined" : "contained"}
-          onClick={() => setValue(name)}
-          sx={{
-            textTransform: "none",
-            borderRadius: 30,
-            boxShadow: "none",
-            bgcolor: name === value ? undefined : "#F7D0FF",
-            color: "#A808C8",
-            fontFamily: '"Manrope", sans-serif',
-            fontWeight: 500,
-            fontSize: 25,
-            width: 225,
-            height: 60,
-            py: 1,
-            transition: "background-color 0.5s",
-            "&:hover": {
-              boxShadow: "none",
-              bgcolor: name === value ? undefined : "#f2b7feff",
-            },
-          }}
-        >
-          {name}
-        </Button>
-      ))}
+      {step0currencies.map((name) => {
+        const isSelected = name === value;
+        return (
+          <Button
+            key={name}
+            startIcon={isSelected && <Ok style={{ marginRight: "2px" }} />}
+            color="secondary"
+            variant={isSelected ? "outlined" : "contained"}
+            onClick={() => setValue(name)}
+            sx={SS0Button(isSelected)}
+          >
+            {name}
+          </Button>
+        );
+      })}
     </>
   );
 };
