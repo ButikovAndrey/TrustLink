@@ -36,6 +36,7 @@ import { ReactComponent as PersonSmall6 } from "./PersonSmall6.svg";
 import { ReactComponent as PersonSmall7 } from "./PersonSmall7.svg";
 import { ReactComponent as Sber } from "./Sber.svg";
 import { ReactComponent as SBP } from "./SBP.svg";
+import { ReactComponent as SBPCounterparty } from "./SBPCounterparty.svg";
 import { ReactComponent as TBank } from "./TBank.svg";
 import { ReactComponent as Timer } from "./Timer.svg";
 import { ReactComponent as Trend } from "./Trend.svg";
@@ -81,6 +82,7 @@ export {
   PersonSmall6,
   PersonSmall7,
   SBP,
+  SBPCounterparty,
   Sber,
   TBank,
   Timer,

@@ -1,4 +1,5 @@
 import { SxProps } from "@mui/material";
+import { CSSProperties } from "react";
 
 export const SSContainer: SxProps = {
   display: "flex",
@@ -90,30 +91,52 @@ export const SS1Button = (isSelected: boolean): SxProps => {
     },
   };
 };
+
 export const SS2Button = ({
   isSelected,
-  color,
   bgcolor,
 }: {
   isSelected: boolean;
-  color: string;
   bgcolor: string;
 }): SxProps => {
   return {
-    textWrap: "nowrap",
-    textTransform: "none",
     borderRadius: 30,
     boxShadow: "none",
     bgcolor: isSelected ? undefined : bgcolor,
-    color: isSelected ? "#A808C8" : color,
-    fontFamily: '"Manrope", sans-serif',
-    fontWeight: 500,
-    fontSize: 25,
     width: 142,
     height: 60,
     py: 1,
   };
 };
+
+export const SS2Icon = (isWide: boolean): CSSProperties => {
+  return { width: isWide ? "47px" : "25px", height: isWide ? "34px" : "25px" };
+};
+
+export const SS3ButtonNameBox: SxProps = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  gap: 0,
+};
+
+export const SS2ButtonName = ({
+  fontSize,
+  color,
+  isSelected,
+}: {
+  fontSize: number;
+  color: string;
+  isSelected: boolean;
+}): SxProps => ({
+  fontFamily: '"Manrope", sans-serif',
+  fontSize,
+  fontWeight: 500,
+  color: isSelected ? "#A808C8" : color,
+  textWrap: "nowrap",
+  textTransform: "none",
+  lineHeight: 1,
+});
 
 export const SS3Container: SxProps = {
   display: "flex",
@@ -221,7 +244,8 @@ export const SS4InfoBox: SxProps = {
   bgcolor: "#FDF0FF",
   borderRadius: "40px",
   flex: 1,
-  maxWidth: 380,
+  maxWidth: { xs: "100%", sm: 380 },
+  width: { xs: "100%", sm: 380 },
 };
 
 export const SS4InfoInnerBox: SxProps = {

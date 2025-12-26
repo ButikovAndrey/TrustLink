@@ -2,7 +2,7 @@ import { Ok } from "@/icons";
 import { SS1Button } from "./styles";
 import { useAppStore } from "@/store";
 import { Button } from "@mui/material";
-import { step1methods } from "./constats";
+import { step1operationTypes } from "./constats";
 
 export const Step1 = () => {
   const value = useAppStore((store) => store.step1value);
@@ -10,7 +10,7 @@ export const Step1 = () => {
 
   return (
     <>
-      {step1methods.map((name) => {
+      {step1operationTypes.map((name) => {
         const isSelected = value === name;
         return (
           <Button

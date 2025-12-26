@@ -3,6 +3,7 @@ import {
   ANIM_DURATION,
   HIGHLIGHT_DURATION,
   MAX_VISIBLE,
+  MOBILE_MULTIPLYER,
   ROW_HEIGHT,
 } from "./constants";
 import { SxProps } from "@mui/material";
@@ -16,6 +17,8 @@ export const SLiveTableContainer: SxProps = {
   mb: "50px",
 };
 
+export const SRowBoxInner_1: SxProps = { display: "flex", width: "100%" };
+
 export const STitle: SxProps = {
   fontWeight: 400,
   fontFamily: '"Manrope", sans-serif',
@@ -28,7 +31,10 @@ export const STitle: SxProps = {
 };
 
 export const SLiveTableBox: SxProps = {
-  height: `${MAX_VISIBLE * ROW_HEIGHT}px`,
+  height: {
+    xs: `${MAX_VISIBLE * ROW_HEIGHT * MOBILE_MULTIPLYER}px`,
+    md: `${MAX_VISIBLE * ROW_HEIGHT}px`,
+  },
   overflow: "hidden",
   width: "100%",
   maxWidth: 790,
@@ -55,17 +61,23 @@ export const SRowContainer = ({
 
 export const SRowBox = (current: boolean): SxProps => {
   return {
-    height: `${ROW_HEIGHT}px`,
+    height: {
+      xs: `${ROW_HEIGHT * MOBILE_MULTIPLYER}px`,
+      md: `${ROW_HEIGHT}px`,
+    },
     bgcolor: current ? "#F0FEED" : "transparent",
     opacity: current ? 0.75 : 1,
     transition: `${HIGHLIGHT_DURATION}ms`,
+    mb: { xs: 2, md: 1 },
   };
 };
 
 export const SRowBoxOuter: SxProps = {
   display: "flex",
+  flexDirection: { xs: "column", md: "row" },
   width: "100%",
-  height: 45,
+  height: { xs: 90, md: 45 },
+  justifyContent: { xs: "space-around", md: undefined },
   border: "1px solid #E4E4E4",
   borderRadius: "4.2px",
   boxSizing: "border-box",
@@ -153,8 +165,8 @@ export const SArrowText = (isPositive: boolean): SxProps => {
 export const SCommentBox: SxProps = {
   display: "flex",
   height: "100%",
-  width: 155,
-  minWidth: 155,
+  width: { xs: undefined, md: 155 },
+  minWidth: { xs: undefined, md: 155 },
   alignItems: "center",
   justifyContent: "flex-start",
 };
@@ -181,8 +193,8 @@ export const SCommentText: SxProps = {
 export const SCourceBox: SxProps = {
   display: "flex",
   height: "100%",
-  width: 135,
-  minWidth: 135,
+  width: { xs: undefined, sm: 135 },
+  minWidth: { xs: undefined, sm: 135 },
   alignItems: "center",
   justifyContent: "flex-start",
 };
@@ -190,8 +202,8 @@ export const SCourceBox: SxProps = {
 export const SSourceBoxInner = (bgcolor: string): SxProps => {
   return {
     display: "flex",
-    width: 100,
-    minWidth: 100,
+    width: { xs: 85, sm: 100 },
+    minWidth: { xs: 85, sm: 100 },
     height: 27,
     justifyContent: "flex-start",
     alignItems: "center",
@@ -214,16 +226,16 @@ export const SSourceBoxText = (color: string): SxProps => {
 export const SPaymentMethodBox: SxProps = {
   display: "flex",
   height: "100%",
-  width: 145,
-  minWidth: 145,
+  width: { xs: undefined, sm: 145 },
+  minWidth: { xs: undefined, sm: 145 },
   alignItems: "center",
   justifyContent: "flex-start",
 };
 
 export const SPaymentMethodBoxInner: SxProps = {
   display: "flex",
-  width: 100,
-  minWidth: 100,
+  width: { xs: 80, sm: 100 },
+  minWidth: { xs: 80, sm: 100 },
   height: 27,
   justifyContent: "flex-start",
   alignItems: "center",
@@ -231,6 +243,7 @@ export const SPaymentMethodBoxInner: SxProps = {
   borderRadius: "40px",
   bgcolor: "#F0FEED",
   px: 1,
+  mr: { xs: 1, md: undefined },
 };
 
 export const SPaymentMethodText: SxProps = {

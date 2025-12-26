@@ -15,7 +15,7 @@ export const NextButton = () => {
       case 0:
         return Boolean(step0value);
       case 1:
-        return Boolean(step1value.length);
+        return Boolean(step1value);
       case 2:
         return Boolean(step2value.length);
       default:

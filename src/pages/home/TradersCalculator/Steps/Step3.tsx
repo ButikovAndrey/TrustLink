@@ -10,8 +10,10 @@ import {
 } from "./styles";
 import { useAppStore } from "@/store";
 import { Box, Button, Slider, Typography } from "@mui/material";
+import { getCurrencySymbol } from "./helpers";
 
 export const Step3 = () => {
+  const currency = useAppStore((store) => store.step0value);
   const value = useAppStore((store) => store.step3value);
   const setValue = useAppStore((store) => store.setStep3value);
 
@@ -34,7 +36,7 @@ export const Step3 = () => {
             sx={SS3BigButton}
             onClick={setMin}
           >
-            {"₽ 1"}
+            {`${getCurrencySymbol(currency)} 1`}
           </Button>
           <Button
             sx={SS3BigButton}
@@ -42,7 +44,7 @@ export const Step3 = () => {
             color="secondary"
             onClick={setMax}
           >
-            {"₽ 10 000"}
+            {`${getCurrencySymbol(currency)} 10 000`}
           </Button>
         </Box>
         <Button
@@ -51,7 +53,7 @@ export const Step3 = () => {
           sx={SS3SmallButton}
           onClick={setMin}
         >
-          {"₽ 1"}
+          {`${getCurrencySymbol(currency)} 1`}
         </Button>
         <Box sx={SS3SliderBox}>
           <Slider
@@ -72,12 +74,14 @@ export const Step3 = () => {
           color="secondary"
           onClick={setMax}
         >
-          {"₽ 10 000"}
+          {`${getCurrencySymbol(currency)} 10 000`}
         </Button>
       </Box>
-      <Typography sx={SS3RangeInfo}>{`₽ ${formatAmount(
-        value[0]
-      )} - ₽ ${formatAmount(value[1])}`}</Typography>
+      <Typography sx={SS3RangeInfo}>{`${getCurrencySymbol(
+        currency
+      )} ${formatAmount(value[0])} - ${getCurrencySymbol(
+        currency
+      )} ${formatAmount(value[1])}`}</Typography>
     </>
   );
 };
