@@ -17,9 +17,10 @@ export const Step3 = () => {
   const value = useAppStore((store) => store.step3value);
   const setValue = useAppStore((store) => store.setStep3value);
 
-  const handleChange = (event: Event, newValue: number[]) => {
+  const handleChange = (_: Event, newValue: [number, number]) => {
     setValue(newValue);
   };
+
   const setMax = () => {
     setValue([value[0], 10000]);
   };
@@ -59,6 +60,7 @@ export const Step3 = () => {
           <Slider
             getAriaLabel={() => "Preferred check size"}
             value={value}
+            //@ts-expect-error no error expected
             onChange={handleChange}
             valueLabelDisplay="auto"
             min={0}

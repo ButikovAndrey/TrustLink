@@ -1,4 +1,7 @@
-import { TCurrency } from "@/pages/home/TradersCalculator/Steps/types";
+import {
+  TCurrency,
+  TPaymentMethod,
+} from "@/pages/home/TradersCalculator/Steps/types";
 import { multiSelect } from "@/store/stepSliceHelpers";
 import { StateCreator } from "zustand";
 
@@ -10,12 +13,12 @@ export interface StepSlice {
 
   step0value: TCurrency | null;
   step1value: string | null;
-  step2value: string[];
-  step3value: number[];
+  step2value: TPaymentMethod[];
+  step3value: [number, number];
   setStep0value: (value: TCurrency) => void;
   setStep1value: (value: string) => void;
-  setStep2value: (value: string | null) => void;
-  setStep3value: (value: number[]) => void;
+  setStep2value: (value: TPaymentMethod | null) => void;
+  setStep3value: (value: [number, number]) => void;
 }
 
 export const createStepSlice: StateCreator<StepSlice, [], [], StepSlice> = (
@@ -34,9 +37,11 @@ export const createStepSlice: StateCreator<StepSlice, [], [], StepSlice> = (
     }),
   setStep0value: (value: TCurrency) => set({ step0value: value }),
   setStep1value: (value: string) => set({ step1value: value }),
-  setStep2value: (value: string | null) =>
-    set((s) => ({ step2value: value ? multiSelect(value, s.step2value) : [] })),
-  setStep3value: (value: number[]) => set({ step3value: value }),
+  setStep2value: (value: TPaymentMethod | null) =>
+    set((s) => ({
+      step2value: value ? multiSelect(value, s.step2value) : [],
+    })),
+  setStep3value: (value: [number, number]) => set({ step3value: value }),
 
   step0value: null,
   step1value: null,

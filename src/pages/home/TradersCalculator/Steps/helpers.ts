@@ -51,3 +51,84 @@ export const persentRate = (
       return 0;
   }
 };
+
+export const calculateComission = ({
+  paymentMethods,
+  range,
+  transactionsAmount = 35,
+  isPayOUT,
+}: {
+  paymentMethods: TPaymentMethod[];
+  range: [number, number];
+  transactionsAmount?: number;
+  isPayOUT?: boolean;
+}): {
+  paymentMethod: string;
+  midRange: number;
+  percent: number;
+  income: number;
+  totalIncome: number;
+}[] => {
+  const midRange = (range[0] + range[1]) / 2;
+  const result = [];
+  let percent = 2;
+  let totalIncome = 0;
+
+  if (isPayOUT) {
+    const income = Math.round(
+      midRange * transactionsAmount * paymentMethods.length * (percent / 100)
+    );
+    result.push({
+      paymentMethod: "Total turnover",
+      midRange: Math.round(
+        midRange * transactionsAmount * paymentMethods.length
+      ),
+      income,
+      percent,
+      totalIncome: income,
+    });
+  } else {
+    paymentMethods.forEach((method) => {
+      let paymentMethod: string = method;
+      switch (method) {
+        case "Kaspi":
+          percent = 8;
+          break;
+        case "Ozon":
+          percent = 7.5;
+          break;
+        case "SBP Counterparty":
+          percent = 7.5;
+          paymentMethod = "SBP Counterparties";
+          break;
+        case "T-Bank":
+          percent = 8;
+          break;
+        case "SBP": {
+          const limit = midRange * transactionsAmount;
+          if (limit > 10000) percent = 7;
+          else if (limit > 5000) percent = 8;
+          else if (limit > 1000) percent = 9;
+          else percent = 13;
+          break;
+        }
+        default:
+          percent = 7;
+          break;
+      }
+      const income = Math.round(
+        midRange * transactionsAmount * (percent / 100)
+      );
+      totalIncome += income;
+
+      result.push({
+        paymentMethod,
+        midRange: Math.round(midRange * transactionsAmount),
+        percent,
+        income,
+        totalIncome,
+      });
+    });
+  }
+  return result;
+};
