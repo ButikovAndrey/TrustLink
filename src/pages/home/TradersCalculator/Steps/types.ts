@@ -15,3 +15,11 @@ export type Tstep2methods = {
   Icon: FunctionComponent<SVGProps<SVGSVGElement>>;
   currencies: TCurrency[];
 }[];
+
+export type CalulatorResults = {
+  paymentMethod: string;
+  midRange: number;
+  percent: number;
+  income: number;
+  totalIncome: number;
+};

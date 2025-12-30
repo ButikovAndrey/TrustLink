@@ -1,4 +1,5 @@
 import {
+  CalulatorResults,
   TCurrency,
   TPaymentMethod,
 } from "@/pages/home/TradersCalculator/Steps/types";
@@ -62,73 +63,58 @@ export const calculateComission = ({
   range: [number, number];
   transactionsAmount?: number;
   isPayOUT?: boolean;
-}): {
-  paymentMethod: string;
-  midRange: number;
-  percent: number;
-  income: number;
-  totalIncome: number;
-}[] => {
-  const midRange = (range[0] + range[1]) / 2;
-  const result = [];
-  let percent = 2;
-  let totalIncome = 0;
+}): CalulatorResults[] => {
+  const midRange = ((range[0] + range[1]) / 2) * transactionsAmount;
+
+  const getPercent = (method: TPaymentMethod): number => {
+    const map: Partial<Record<TPaymentMethod, number>> = {
+      Kaspi: 8,
+      Ozon: 7.5,
+      "SBP Counterparty": 7.5,
+      "T-Bank": 8,
+    };
+
+    if (method === "SBP") {
+      if (midRange > 10000) return 7;
+      if (midRange > 5000) return 8;
+      if (midRange > 1000) return 9;
+      return 13;
+    }
+
+    return map[method] ?? 7;
+  };
 
   if (isPayOUT) {
+    const percent = 2;
     const income = Math.round(
-      midRange * transactionsAmount * paymentMethods.length * (percent / 100)
+      midRange * paymentMethods.length * (percent / 100)
     );
-    result.push({
-      paymentMethod: "Total turnover",
-      midRange: Math.round(
-        midRange * transactionsAmount * paymentMethods.length
-      ),
-      income,
-      percent,
-      totalIncome: income,
-    });
-  } else {
-    paymentMethods.forEach((method) => {
-      let paymentMethod: string = method;
-      switch (method) {
-        case "Kaspi":
-          percent = 8;
-          break;
-        case "Ozon":
-          percent = 7.5;
-          break;
-        case "SBP Counterparty":
-          percent = 7.5;
-          paymentMethod = "SBP Counterparties";
-          break;
-        case "T-Bank":
-          percent = 8;
-          break;
-        case "SBP": {
-          const limit = midRange * transactionsAmount;
-          if (limit > 10000) percent = 7;
-          else if (limit > 5000) percent = 8;
-          else if (limit > 1000) percent = 9;
-          else percent = 13;
-          break;
-        }
-        default:
-          percent = 7;
-          break;
-      }
-      const income = Math.round(
-        midRange * transactionsAmount * (percent / 100)
-      );
-      totalIncome += income;
 
-      result.push({
-        paymentMethod,
-        midRange: Math.round(midRange * transactionsAmount),
+    return [
+      {
+        paymentMethod: "Total turnover",
+        midRange: Math.round(midRange * paymentMethods.length),
         percent,
         income,
-        totalIncome,
-      });
-    });
+        totalIncome: income,
+      },
+    ];
   }
-  return result;
+
+  let totalIncome = 0;
+
+  return paymentMethods.map((method) => {
+    const percent = getPercent(method);
+    const income = Math.round(midRange * (percent / 100));
+    totalIncome += income;
+
+    return {
+      paymentMethod:
+        method === "SBP Counterparty" ? "SBP Counterparties" : method,
+      midRange: Math.round(midRange),
+      percent,
+      income,
+      totalIncome,
+    };
+  });
 };
