@@ -5,7 +5,6 @@ import {
   Courthouse,
   Global,
   Live,
-  Moneys,
   TrustLinkSymbol,
 } from "@/icons";
 
@@ -25,10 +24,6 @@ export const burgerItems = [
 ];
 
 export const flagItems = [
-  {
-    title: "Resources",
-    Icon: Moneys,
-  },
   {
     title: "Terms & Conditions",
     Icon: Bookmark,

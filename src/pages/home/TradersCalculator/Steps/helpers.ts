@@ -29,30 +29,6 @@ export const isPayOUT = (operationType: string | null): boolean => {
   return operationType.length > 10;
 };
 
-export const persentRate = (
-  paymentMethod: TPaymentMethod,
-  range: number[]
-): number => {
-  if (range.length < 2) return 0;
-  switch (paymentMethod) {
-    case "SBP":
-      return 0;
-    case "Crypto":
-      return 0;
-    case "Kaspi":
-      return 0;
-    case "Ozon":
-      return 0;
-    case "T-Bank":
-      return 0;
-    case "SBP Counterparty":
-      return 0;
-
-    default:
-      return 0;
-  }
-};
-
 export const calculateComission = ({
   paymentMethods,
   range,

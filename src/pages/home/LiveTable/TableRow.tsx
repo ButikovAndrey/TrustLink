@@ -20,6 +20,7 @@ import {
   SSourceBoxInner,
   SSourceBoxText,
   SRowBoxInner_1,
+  SCommentContainer,
 } from "./styles";
 import { Box, Typography } from "@mui/material";
 
@@ -47,14 +48,7 @@ export const TableRow = ({ row }: PropsType) => {
           </Box>
         </Box>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          width: "100%",
-          px: { xs: 0.5, md: undefined },
-          justifyContent: { xs: "space-between", md: undefined },
-        }}
-      >
+      <Box sx={SCommentContainer}>
         <Box sx={SCommentBox}>
           <Box sx={SComment}>
             <Ellipse />

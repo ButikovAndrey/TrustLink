@@ -162,6 +162,13 @@ export const SArrowText = (isPositive: boolean): SxProps => {
   };
 };
 
+export const SCommentContainer: SxProps = {
+  display: "flex",
+  width: "100%",
+  px: { xs: 0.5, md: undefined },
+  justifyContent: { xs: "space-between", md: undefined },
+};
+
 export const SCommentBox: SxProps = {
   display: "flex",
   height: "100%",
