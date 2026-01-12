@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUp, Ellipse } from "@/icons";
+import { ArrowNE, ReceiveBox } from "@/icons";
 import { ITableCotent } from "./constants";
 import {
   SArrowBox,
@@ -21,8 +21,12 @@ import {
   SSourceBoxText,
   SRowBoxInner_1,
   SCommentContainer,
+  SMiddleBox,
+  SRowAmountInner,
+  SCommentOuter,
 } from "./styles";
 import { Box, Typography } from "@mui/material";
+import { formatAmount, hideLastSymbols } from "@/helpers/stringFormats";
 
 type PropsType = {
   row: ITableCotent;
@@ -31,32 +35,42 @@ type PropsType = {
 export const TableRow = ({ row }: PropsType) => {
   return (
     <Box sx={SRowBoxOuter}>
+      <Box sx={SRowBoxInner}>
+        <Box sx={SPersonBox}>
+          <row.personIcon style={SPersonIcon} />
+          <Typography sx={SPersonName}>
+            {hideLastSymbols(row.personName)}
+          </Typography>
+        </Box>
+      </Box>
       <Box sx={SRowBoxInner_1}>
-        <Box sx={SRowBoxInner}>
-          <Box sx={SPersonBox}>
-            <row.personIcon style={SPersonIcon} />
-            <Typography sx={SPersonName}>{row.personName}</Typography>
+        <Box sx={SRowAmountBox}>
+          <Box sx={SMiddleBox}>
+            <Box sx={SRowAmountInner}>
+              <ReceiveBox style={{ minWidth: "15px", minHeight: "15px" }} />
+              <Typography sx={SRowAmount}>
+                {formatAmount(row.amount)}
+              </Typography>
+            </Box>
+          </Box>
+          <Box sx={SCommentOuter}>
+            <Box sx={SComment}>
+              <ArrowNE />
+              <Typography sx={SCommentText}>
+                {row.comment || "Comment"}
+              </Typography>
+            </Box>
           </Box>
         </Box>
-        <Box sx={SRowAmountBox}>
-          <Typography sx={SRowAmount}>{row.amount}</Typography>
+        <Box sx={SCommentBox}>
           <Box sx={SArrowBox(row.margin > 0)}>
-            {row.margin > 0 ? <ArrowUp /> : <ArrowDown />}
             <Typography sx={SArrowText(row.margin > 0)}>
-              {Math.abs(row.margin).toString()}
+              {Math.abs(row.margin).toString()}%
             </Typography>
           </Box>
         </Box>
       </Box>
       <Box sx={SCommentContainer}>
-        <Box sx={SCommentBox}>
-          <Box sx={SComment}>
-            <Ellipse />
-            <Typography sx={SCommentText}>
-              {row.comment || "Comment"}
-            </Typography>
-          </Box>
-        </Box>
         <Box sx={SCourceBox}>
           <Box sx={SSourceBoxInner(row.sourceColor)}>
             <row.sourceIcon />

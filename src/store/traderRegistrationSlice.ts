@@ -15,7 +15,7 @@ export const createTraderRegistrationSlice: StateCreator<
   TraderRegistrationSlice
 > = (set) => ({
   openTR: false,
-  readyKYC: false,
+  readyKYC: true,
 
   setOpenTR: () => set({ openTR: true }),
   setCloseTR: () => set({ openTR: false }),

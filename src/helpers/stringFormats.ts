@@ -16,6 +16,17 @@ export const formatAmount = (amount: number | string): string => {
     : parts.join(" ");
 };
 
+export const hideLastSymbols = (str: string, symbols = 3): string => {
+  if (!str) return "";
+  const stars = "*".repeat(symbols);
+  return str
+    .split(" ")
+    .map((name) =>
+      name.length > symbols ? name.slice(0, -symbols) + stars : name[0] + stars
+    )
+    .join(" ");
+};
+
 export const formatPhoneNumber = (value: string): string => {
   if (!value) return "";
   let formatted = value.replace(/[^+\d\s]/g, "");
@@ -30,12 +41,9 @@ export const formatPhoneNumber = (value: string): string => {
 
 export const formatTelegramInput = (input: string): string => {
   if (!input) return "";
-
-  const telegram = input
+  return input
     .replace(/[^A-Za-z0-9_@]/g, "")
     .replace(/(?!^@)@/g, "")
     .slice(0, 32)
     .trim();
-
-  return telegram;
 };

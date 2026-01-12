@@ -1,4 +1,5 @@
 import { ReactComponent as ArrowUp } from "./ArrowUp.svg";
+import { ReactComponent as ArrowNE } from "./ArrowNE.svg";
 import { ReactComponent as ArrowDown } from "./ArrowDown.svg";
 import { ReactComponent as Banner } from "./Banner.svg";
 import { ReactComponent as Bookmark } from "./Bookmark.svg";
@@ -34,6 +35,7 @@ import { ReactComponent as PersonSmall4 } from "./PersonSmall4.svg";
 import { ReactComponent as PersonSmall5 } from "./PersonSmall5.svg";
 import { ReactComponent as PersonSmall6 } from "./PersonSmall6.svg";
 import { ReactComponent as PersonSmall7 } from "./PersonSmall7.svg";
+import { ReactComponent as ReceiveBox } from "./ReceiveBox.svg";
 import { ReactComponent as Sber } from "./Sber.svg";
 import { ReactComponent as SBP } from "./SBP.svg";
 import { ReactComponent as SBPCounterparty } from "./SBPCounterparty.svg";
@@ -46,6 +48,7 @@ import { ReactComponent as UserSquare } from "./UserSquare.svg";
 
 export {
   ArrowUp,
+  ArrowNE,
   ArrowDown,
   Banner,
   Bookmark,
@@ -81,6 +84,7 @@ export {
   PersonSmall5,
   PersonSmall6,
   PersonSmall7,
+  ReceiveBox,
   SBP,
   SBPCounterparty,
   Sber,

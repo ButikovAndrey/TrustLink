@@ -32,8 +32,8 @@ export const STitle: SxProps = {
 
 export const SLiveTableBox: SxProps = {
   height: {
-    xs: `${MAX_VISIBLE * ROW_HEIGHT * MOBILE_MULTIPLYER}px`,
-    md: `${MAX_VISIBLE * ROW_HEIGHT}px`,
+    xs: `${(MAX_VISIBLE / 2) * ROW_HEIGHT * MOBILE_MULTIPLYER - 40}px`,
+    md: `${MAX_VISIBLE * ROW_HEIGHT - 10}px`,
   },
   overflow: "hidden",
   width: "100%",
@@ -68,7 +68,7 @@ export const SRowBox = (current: boolean): SxProps => {
     bgcolor: current ? "#F0FEED" : "transparent",
     opacity: current ? 0.75 : 1,
     transition: `${HIGHLIGHT_DURATION}ms`,
-    mb: { xs: 2, md: 1 },
+    mb: { xs: "20px", md: 1.1 },
   };
 };
 
@@ -76,18 +76,19 @@ export const SRowBoxOuter: SxProps = {
   display: "flex",
   flexDirection: { xs: "column", md: "row" },
   width: "100%",
-  height: { xs: 90, md: 45 },
+  height: { xs: 180, md: 45 },
+  px: { xs: 2, md: undefined },
+  py: { xs: 2, md: undefined },
   justifyContent: { xs: "space-around", md: undefined },
-  border: "1px solid #E4E4E4",
-  borderRadius: "4.2px",
+  border: "1px solid #A808C8",
+  borderRadius: { xs: "20px", md: 7 },
   boxSizing: "border-box",
 };
 
 export const SRowBoxInner: SxProps = {
   display: "flex",
   alignItems: "center",
-  width: 200,
-  height: "100%",
+  width: { xs: "100%", md: 200 },
   justifyContent: "flex-start",
   px: 0.5,
 };
@@ -96,8 +97,7 @@ export const SPersonBox: SxProps = {
   display: "flex",
   justifyContent: "flex-start",
   alignItems: "center",
-  width: 165,
-  minWidth: 165,
+  width: { xs: "100%", md: 165 },
   gap: 1,
   textWrap: "nowrap",
   bgcolor: "#F2F8FF",
@@ -123,18 +123,16 @@ export const SPersonName: SxProps = {
 
 export const SRowAmountBox: SxProps = {
   display: "flex",
-  justifyContent: "flex-start",
+  justifyContent: "space-between",
   alignItems: "center",
   gap: 1,
   textWrap: "nowrap",
-  width: 155,
-  minWidth: 155,
 };
 
 export const SRowAmount: SxProps = {
-  color: "#727272",
+  color: "#5A5A5A",
   fontFamily: '"Inter", sans-serif',
-  fontSize: 13,
+  fontSize: 12.7,
   fontWeight: 500,
 };
 
@@ -142,12 +140,11 @@ export const SArrowBox = (isPositive: boolean): SxProps => {
   return {
     display: "flex",
     height: 26.5,
+    width: 60,
     justifyContent: "center",
     alignItems: "center",
-    gap: 1,
     borderRadius: "40px",
     bgcolor: isPositive ? "#F0FEED" : "#FFEBE8",
-    px: 1,
     textWrap: "nowrap",
   };
 };
@@ -155,7 +152,6 @@ export const SArrowBox = (isPositive: boolean): SxProps => {
 export const SArrowText = (isPositive: boolean): SxProps => {
   return {
     color: isPositive ? "#259800" : "#FF1818",
-    pr: 1,
     fontFamily: '"Inter", sans-serif',
     fontSize: 13,
     fontWeight: 500,
@@ -164,16 +160,14 @@ export const SArrowText = (isPositive: boolean): SxProps => {
 
 export const SCommentContainer: SxProps = {
   display: "flex",
-  width: "100%",
   px: { xs: 0.5, md: undefined },
-  justifyContent: { xs: "space-between", md: undefined },
+  ml: 2,
 };
 
 export const SCommentBox: SxProps = {
   display: "flex",
   height: "100%",
-  width: { xs: undefined, md: 155 },
-  minWidth: { xs: undefined, md: 155 },
+  width: 60,
   alignItems: "center",
   justifyContent: "flex-start",
 };
@@ -185,32 +179,32 @@ export const SComment: SxProps = {
   alignItems: "center",
   gap: 1,
   borderRadius: "40px",
-  bgcolor: "#F8F8F8",
   px: 1,
   textWrap: "nowrap",
+  width: "fit-content",
 };
 
 export const SCommentText: SxProps = {
-  color: "#5A5A5A",
+  color: "#437830",
   fontFamily: '"Inter", sans-serif',
   fontSize: 13,
-  fontWeight: 500,
 };
 
 export const SCourceBox: SxProps = {
   display: "flex",
   height: "100%",
-  width: { xs: undefined, sm: 135 },
-  minWidth: { xs: undefined, sm: 135 },
+  width: { xs: undefined, md: 100 },
+  minWidth: { xs: undefined, md: 100 },
   alignItems: "center",
   justifyContent: "flex-start",
+  mr: { xs: 1, md: undefined },
 };
 
 export const SSourceBoxInner = (bgcolor: string): SxProps => {
   return {
     display: "flex",
-    width: { xs: 85, sm: 100 },
-    minWidth: { xs: 85, sm: 100 },
+    width: { xs: 85, sm: 85 },
+    minWidth: { xs: 85, sm: 85 },
     height: 27,
     justifyContent: "flex-start",
     alignItems: "center",
@@ -233,16 +227,17 @@ export const SSourceBoxText = (color: string): SxProps => {
 export const SPaymentMethodBox: SxProps = {
   display: "flex",
   height: "100%",
-  width: { xs: undefined, sm: 145 },
-  minWidth: { xs: undefined, sm: 145 },
+  width: { xs: "100%", sm: 140 },
+  minWidth: { xs: "100%", sm: 140 },
   alignItems: "center",
   justifyContent: "flex-start",
+  ml: 1,
 };
 
 export const SPaymentMethodBoxInner: SxProps = {
   display: "flex",
-  width: { xs: 80, sm: 100 },
-  minWidth: { xs: 80, sm: 100 },
+  width: 80,
+  minWidth: 80,
   height: 27,
   justifyContent: "flex-start",
   alignItems: "center",
@@ -259,3 +254,18 @@ export const SPaymentMethodText: SxProps = {
   fontSize: 13,
   fontWeight: 500,
 };
+
+export const SMiddleBox: SxProps = { width: 90 };
+
+export const SRowAmountInner: SxProps = {
+  display: "flex",
+  height: "26.5px",
+  justifyContent: "space-between",
+  alignItems: "center",
+  gap: 1,
+  px: 1.5,
+  borderRadius: 5,
+  bgcolor: "#F8F8F8",
+};
+
+export const SCommentOuter: SxProps = { width: 155 };

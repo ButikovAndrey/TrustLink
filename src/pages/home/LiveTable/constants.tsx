@@ -18,7 +18,8 @@ import { FunctionComponent, SVGProps } from "react";
 export interface ITableCotent {
   personName: string;
   personIcon: FunctionComponent<SVGProps<SVGSVGElement>>;
-  amount: string;
+  amount: number;
+  currency: string;
   margin: number;
   comment: string;
   source: string;
@@ -33,9 +34,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Gusein Gasanov",
     personIcon: PersonSmall1,
-    amount: "500 RUB",
-    margin: 100,
-    comment: "Got Paid ₽500",
+    amount: 5000,
+    currency: "RUB",
+    margin: 10,
+    comment: "Got Paid 500 RUB",
     source: "Forex",
     sourceIcon: Trend,
     sourceTextColor: "#3083FF",
@@ -46,9 +48,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Alexander Bare",
     personIcon: PersonSmall2,
-    amount: "700 USD",
-    margin: 70,
-    comment: "₽11,000 to $133",
+    amount: 7000,
+    currency: "RUB",
+    margin: 7,
+    comment: "Got Paid 490 RUB",
     source: "Adult",
     sourceIcon: HeartBit,
     sourceTextColor: "#FF5151",
@@ -59,9 +62,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Johnatan Davids",
     personIcon: PersonSmall3,
-    amount: "5500 AZN",
-    margin: -50,
-    comment: "Received $125",
+    amount: 55000,
+    currency: "AZN",
+    margin: 5,
+    comment: "Got Paid 125 USD",
     source: "Gamebet",
     sourceIcon: Game,
     sourceTextColor: "#A808C8",
@@ -72,9 +76,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Vivian Monclair",
     personIcon: PersonSmall4,
-    amount: "8200 RUB",
-    margin: 20,
-    comment: "Got Paid ₽8200",
+    amount: 8200,
+    currency: "RUB",
+    margin: 2,
+    comment: "Got Paid 164 RUB",
     source: "Forex",
     sourceIcon: Trend,
     sourceTextColor: "#3083FF",
@@ -85,9 +90,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Ekaterina Ivanova",
     personIcon: PersonSmall5,
-    amount: "5500 AZN",
-    margin: -50,
-    comment: "Received $90",
+    amount: 5500,
+    currency: "AZN",
+    margin: 5,
+    comment: "Got Paid 90 USD",
     source: "Gamebet",
     sourceIcon: Game,
     sourceTextColor: "#A808C8",
@@ -98,9 +104,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "John Malkovich",
     personIcon: PersonSmall6,
-    amount: "3000 RUB",
-    margin: 200,
-    comment: "Got Paid ₽3000",
+    amount: 30000,
+    currency: "RUB",
+    margin: 10,
+    comment: "Got Paid 3000 RUB",
     source: "Forex",
     sourceIcon: Trend,
     sourceTextColor: "#3083FF",
@@ -111,9 +118,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Almaz Abdulov",
     personIcon: PersonSmall7,
-    amount: "700 USD",
-    margin: 55,
-    comment: "₽22,000 to $245",
+    amount: 700,
+    currency: "USD",
+    margin: 5.5,
+    comment: "Got Paid 39 USD",
     source: "Adult",
     sourceIcon: HeartBit,
     sourceTextColor: "#FF5151",
@@ -124,9 +132,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Josh Enkolt",
     personIcon: PersonSmall1,
-    amount: "400 EUR",
-    margin: 100,
-    comment: "Got Paid $423",
+    amount: 4000,
+    currency: "RUB",
+    margin: 10.5,
+    comment: "Got Paid 420 RUB",
     source: "Forex",
     sourceIcon: Trend,
     sourceTextColor: "#3083FF",
@@ -137,9 +146,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Timur Mudiskiy",
     personIcon: PersonSmall3,
-    amount: "7750 AZN",
-    margin: -20,
-    comment: "Received $188",
+    amount: 7750,
+    currency: "AZN",
+    margin: 2,
+    comment: "Got Paid 188 USD",
     source: "Gamebet",
     sourceIcon: Game,
     sourceTextColor: "#A808C8",
@@ -150,9 +160,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Mila Alientes",
     personIcon: PersonSmall2,
-    amount: "350 USD",
-    margin: 70,
-    comment: "₽5,500 to $68",
+    amount: 3500,
+    currency: "USD",
+    margin: 7,
+    comment: "Got Paid 24.5 USD",
     source: "Adult",
     sourceIcon: HeartBit,
     sourceTextColor: "#FF5151",
@@ -163,9 +174,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Vitort Moldur",
     personIcon: PersonSmall4,
-    amount: "8200 RUB",
-    margin: 20,
-    comment: "Got Paid ₽8200",
+    amount: 8200,
+    currency: "RUB",
+    margin: 2,
+    comment: "Got Paid 8200 RUB",
     source: "Forex",
     sourceIcon: Trend,
     sourceTextColor: "#3083FF",
@@ -176,9 +188,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Ann Kamarenko",
     personIcon: PersonSmall5,
-    amount: "11,000 AZN",
-    margin: -100,
-    comment: "Received $180",
+    amount: 11000,
+    currency: "AZN",
+    margin: 10,
+    comment: "Got Paid 180 USD",
     source: "Gamebet",
     sourceIcon: Game,
     sourceTextColor: "#A808C8",
@@ -189,9 +202,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Pavel Matskevich",
     personIcon: PersonSmall6,
-    amount: "3000 RUB",
-    margin: 200,
-    comment: "Got Paid ₽3000",
+    amount: 30000,
+    currency: "RUB",
+    margin: 10,
+    comment: "Got Paid 3000 RUB",
     source: "Forex",
     sourceIcon: Trend,
     sourceTextColor: "#3083FF",
@@ -202,9 +216,10 @@ export const tableContent: ITableCotent[] = [
   {
     personName: "Ali Matr",
     personIcon: PersonSmall7,
-    amount: "350 USD",
-    margin: 55,
-    comment: "₽11,000 to $123",
+    amount: 350,
+    currency: "USD",
+    margin: 5.5,
+    comment: "Got Paid 176 USD",
     source: "Adult",
     sourceIcon: HeartBit,
     sourceTextColor: "#FF5151",
@@ -215,8 +230,8 @@ export const tableContent: ITableCotent[] = [
 ];
 
 export const MAX_VISIBLE = 7;
-export const ROW_HEIGHT = 45;
-export const MOBILE_MULTIPLYER = 2;
+export const ROW_HEIGHT = 50;
+export const MOBILE_MULTIPLYER = 3.5;
 export const INTERVAL = 7000;
 export const ANIM_DURATION = 500;
 export const HIGHLIGHT_DURATION = 750;
