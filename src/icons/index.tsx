@@ -1,7 +1,6 @@
 import { ReactComponent as ArrowUp } from "./ArrowUp.svg";
 import { ReactComponent as ArrowNE } from "./ArrowNE.svg";
 import { ReactComponent as ArrowDown } from "./ArrowDown.svg";
-import { ReactComponent as Banner } from "./Banner.svg";
 import { ReactComponent as Bookmark } from "./Bookmark.svg";
 import { ReactComponent as Burger } from "./Burger.svg";
 import { ReactComponent as Calculator } from "./Calculator.svg";
@@ -24,17 +23,6 @@ import { ReactComponent as Ok } from "./Ok.svg";
 import { ReactComponent as OzonBank } from "./OzonBank.svg";
 import { ReactComponent as PayIn } from "./PayIn.svg";
 import { ReactComponent as PayOut } from "./PayOut.svg";
-import { ReactComponent as Person1 } from "./Person1.svg";
-import { ReactComponent as Person2 } from "./Person2.svg";
-import { ReactComponent as Person3 } from "./Person3.svg";
-import { ReactComponent as Person4 } from "./Person4.svg";
-import { ReactComponent as PersonSmall1 } from "./PersonSmall1.svg";
-import { ReactComponent as PersonSmall2 } from "./PersonSmall2.svg";
-import { ReactComponent as PersonSmall3 } from "./PersonSmall3.svg";
-import { ReactComponent as PersonSmall4 } from "./PersonSmall4.svg";
-import { ReactComponent as PersonSmall5 } from "./PersonSmall5.svg";
-import { ReactComponent as PersonSmall6 } from "./PersonSmall6.svg";
-import { ReactComponent as PersonSmall7 } from "./PersonSmall7.svg";
 import { ReactComponent as ReceiveBox } from "./ReceiveBox.svg";
 import { ReactComponent as Sber } from "./Sber.svg";
 import { ReactComponent as SBP } from "./SBP.svg";
@@ -46,11 +34,52 @@ import { ReactComponent as TrustLink } from "./TrustLink.svg";
 import { ReactComponent as TrustLinkSymbol } from "./TrustLinkSymbol.svg";
 import { ReactComponent as UserSquare } from "./UserSquare.svg";
 
+//Lazy
+import { lazy } from "react";
+
+export const Person1 = lazy(() =>
+  import("./Person1.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const Person2 = lazy(() =>
+  import("./Person2.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const Person3 = lazy(() =>
+  import("./Person3.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const Person4 = lazy(() =>
+  import("./Person4.svg").then((m) => ({ default: m.ReactComponent }))
+);
+
+export const PersonSmall1 = lazy(() =>
+  import("./PersonSmall1.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const PersonSmall2 = lazy(() =>
+  import("./PersonSmall2.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const PersonSmall3 = lazy(() =>
+  import("./PersonSmall3.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const PersonSmall4 = lazy(() =>
+  import("./PersonSmall4.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const PersonSmall5 = lazy(() =>
+  import("./PersonSmall5.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const PersonSmall6 = lazy(() =>
+  import("./PersonSmall6.svg").then((m) => ({ default: m.ReactComponent }))
+);
+export const PersonSmall7 = lazy(() =>
+  import("./PersonSmall7.svg").then((m) => ({ default: m.ReactComponent }))
+);
+
+export const Banner = lazy(() =>
+  import("./Banner.svg").then((m) => ({ default: m.ReactComponent }))
+);
+
 export {
   ArrowUp,
   ArrowNE,
   ArrowDown,
-  Banner,
   Bookmark,
   Burger,
   Calculator,
@@ -73,17 +102,6 @@ export {
   OzonBank,
   PayIn,
   PayOut,
-  Person1,
-  Person2,
-  Person3,
-  Person4,
-  PersonSmall1,
-  PersonSmall2,
-  PersonSmall3,
-  PersonSmall4,
-  PersonSmall5,
-  PersonSmall6,
-  PersonSmall7,
   ReceiveBox,
   SBP,
   SBPCounterparty,
