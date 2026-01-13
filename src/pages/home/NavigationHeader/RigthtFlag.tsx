@@ -1,6 +1,6 @@
 import { Flag } from "@/icons";
 import { flagItems } from "./constants";
-import { SFakeMenuItem, SIcon, SMenu, SMenuItem } from "./styles";
+import { SIcon, SMenu, SMenuItem } from "./styles";
 import { Menu, MenuItem } from "@mui/material";
 import { MouseEvent, useState } from "react";
 
@@ -34,6 +34,9 @@ export const RigthtFlag = () => {
           paper: {
             sx: SMenu,
           },
+          list: {
+            autoFocusItem: false,
+          },
         }}
       >
         {flagItems.map(({ title, Icon }) => {
@@ -44,7 +47,6 @@ export const RigthtFlag = () => {
             </MenuItem>
           );
         })}
-        <MenuItem autoFocus sx={SFakeMenuItem} />
       </Menu>
     </>
   );

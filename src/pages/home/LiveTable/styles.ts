@@ -161,7 +161,7 @@ export const SArrowText = (isPositive: boolean): SxProps => {
 export const SCommentContainer: SxProps = {
   display: "flex",
   px: { xs: 0.5, md: undefined },
-  ml: 2,
+  ml: { xs: undefined, md: 2 },
 };
 
 export const SCommentBox: SxProps = {

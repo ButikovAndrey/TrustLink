@@ -57,5 +57,3 @@ export const SHeadLogo: SxProps = {
   gap: 1,
   alignItems: "center",
 };
-
-export const SFakeMenuItem: SxProps = { height: 0, p: 0, m: 0 };

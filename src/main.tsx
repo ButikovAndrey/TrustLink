@@ -4,7 +4,7 @@ import App from "./App";
 
 hydrateRoot(
   document.getElementById("root")!,
-  <BrowserRouter>
+  <BrowserRouter basename="/TrustLink/">
     <App />
   </BrowserRouter>
 );
