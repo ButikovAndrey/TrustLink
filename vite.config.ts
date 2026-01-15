@@ -19,7 +19,7 @@ export default defineConfig({
     //   additionalPrerenderRoutes: ["/"],
     // }),
   ],
-  base: "/TrustLink/",
+  base: process.env.NODE_ENV === "production" ? "/TrustLink/" : "/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),

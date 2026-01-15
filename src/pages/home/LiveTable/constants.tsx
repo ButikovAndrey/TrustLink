@@ -17,7 +17,7 @@ import { FunctionComponent, SVGProps } from "react";
 
 export interface ITableCotent {
   personName: string;
-  personIcon: FunctionComponent<SVGProps<SVGSVGElement>>;
+  personIcon: string;
   amount: number;
   currency: string;
   margin: number;

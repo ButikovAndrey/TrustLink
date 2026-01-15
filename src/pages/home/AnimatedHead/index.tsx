@@ -40,7 +40,12 @@ export const AnimatedHead = () => {
     <Box sx={SHeaderInnerContainer}>
       <Box sx={SHeadAnimationContainer}>
         <Box sx={SPersonIconBox(fade)}>
-          <values.personIcon style={SPersonIcon} />
+          <img
+            src={values.personIcon}
+            alt=""
+            loading="lazy"
+            style={SPersonIcon}
+          />
         </Box>
         <Box sx={SToggleContainer}>
           <Box sx={SLeftContainerBox(fade, values.toggle)}>

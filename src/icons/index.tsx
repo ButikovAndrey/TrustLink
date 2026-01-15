@@ -37,40 +37,32 @@ import { ReactComponent as UserSquare } from "./UserSquare.svg";
 //Lazy
 import { lazy } from "react";
 
-export const Person1 = lazy(() =>
-  import("./Person1.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const Person2 = lazy(() =>
-  import("./Person2.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const Person3 = lazy(() =>
-  import("./Person3.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const Person4 = lazy(() =>
-  import("./Person4.svg").then((m) => ({ default: m.ReactComponent }))
-);
+export const Person1 = `${import.meta.env.BASE_URL}assets/Person1.png`;
+export const Person2 = `${import.meta.env.BASE_URL}assets/Person2.png`;
+export const Person3 = `${import.meta.env.BASE_URL}assets/Person3.png`;
+export const Person4 = `${import.meta.env.BASE_URL}assets/Person1.png`;
 
-export const PersonSmall1 = lazy(() =>
-  import("./PersonSmall1.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const PersonSmall2 = lazy(() =>
-  import("./PersonSmall2.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const PersonSmall3 = lazy(() =>
-  import("./PersonSmall3.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const PersonSmall4 = lazy(() =>
-  import("./PersonSmall4.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const PersonSmall5 = lazy(() =>
-  import("./PersonSmall5.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const PersonSmall6 = lazy(() =>
-  import("./PersonSmall6.svg").then((m) => ({ default: m.ReactComponent }))
-);
-export const PersonSmall7 = lazy(() =>
-  import("./PersonSmall7.svg").then((m) => ({ default: m.ReactComponent }))
-);
+export const PersonSmall1 = `${
+  import.meta.env.BASE_URL
+}assets/PersonSmall1.png`;
+export const PersonSmall2 = `${
+  import.meta.env.BASE_URL
+}assets/PersonSmall2.png`;
+export const PersonSmall3 = `${
+  import.meta.env.BASE_URL
+}assets/PersonSmall3.png`;
+export const PersonSmall4 = `${
+  import.meta.env.BASE_URL
+}assets/PersonSmall4.png`;
+export const PersonSmall5 = `${
+  import.meta.env.BASE_URL
+}assets/PersonSmall5.png`;
+export const PersonSmall6 = `${
+  import.meta.env.BASE_URL
+}assets/PersonSmall6.png`;
+export const PersonSmall7 = `${
+  import.meta.env.BASE_URL
+}assets/PersonSmall7.png`;
 
 export const Banner = lazy(() =>
   import("./Banner.svg").then((m) => ({ default: m.ReactComponent }))

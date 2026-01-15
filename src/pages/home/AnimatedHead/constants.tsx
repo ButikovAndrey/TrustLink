@@ -2,7 +2,7 @@ import { Card, Person1, Person2, Person3, Person4, Sber, SBP } from "@/icons";
 import { FunctionComponent, SVGProps } from "react";
 
 interface IHeaderFaces {
-  personIcon: FunctionComponent<SVGProps<SVGSVGElement>>;
+  personIcon: string;
   paymentIcon: FunctionComponent<SVGProps<SVGSVGElement>>;
   paymentName: string;
   paymentTextColor: string;

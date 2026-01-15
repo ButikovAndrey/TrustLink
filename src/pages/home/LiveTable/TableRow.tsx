@@ -37,7 +37,7 @@ export const TableRow = ({ row }: PropsType) => {
     <Box sx={SRowBoxOuter}>
       <Box sx={SRowBoxInner}>
         <Box sx={SPersonBox}>
-          <row.personIcon style={SPersonIcon} />
+          <img src={row.personIcon} alt="" loading="lazy" style={SPersonIcon} />
           <Typography sx={SPersonName}>
             {hideLastSymbols(row.personName)}
           </Typography>
