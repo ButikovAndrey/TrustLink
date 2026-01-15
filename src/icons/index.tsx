@@ -40,7 +40,7 @@ import { lazy } from "react";
 export const Person1 = `${import.meta.env.BASE_URL}assets/Person1.png`;
 export const Person2 = `${import.meta.env.BASE_URL}assets/Person2.png`;
 export const Person3 = `${import.meta.env.BASE_URL}assets/Person3.png`;
-export const Person4 = `${import.meta.env.BASE_URL}assets/Person1.png`;
+export const Person4 = `${import.meta.env.BASE_URL}assets/Person4.png`;
 
 export const PersonSmall1 = `${
   import.meta.env.BASE_URL
