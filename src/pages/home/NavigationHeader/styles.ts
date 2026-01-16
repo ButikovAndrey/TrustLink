@@ -16,6 +16,7 @@ export const SMenu: SxProps = {
   color: "#A808C8",
   border: "1.5px solid #A808C8",
   borderRadius: 4,
+  minWidth: 200,
 };
 
 export const SMenuItem: SxProps = {

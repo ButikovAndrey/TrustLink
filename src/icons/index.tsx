@@ -33,8 +33,6 @@ import { ReactComponent as Trend } from "./Trend.svg";
 import { ReactComponent as TrustLink } from "./TrustLink.svg";
 import { ReactComponent as TrustLinkSymbol } from "./TrustLinkSymbol.svg";
 import { ReactComponent as UserSquare } from "./UserSquare.svg";
-
-//Lazy
 import { lazy } from "react";
 
 export const Person1 = `${import.meta.env.BASE_URL}assets/Person1.png`;
